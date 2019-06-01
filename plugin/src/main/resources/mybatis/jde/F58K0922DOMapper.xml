@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.mapper.F58K0922DOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K0922DO">
+    <id column="mjedoc" jdbcType="NUMERIC" property="mjedoc" />
+    <id column="mjedct" jdbcType="CHAR" property="mjedct" />
+    <id column="mjekco" jdbcType="CHAR" property="mjekco" />
+    <id column="mjedln" jdbcType="NUMERIC" property="mjedln" />
+    <result column="mjedty" jdbcType="CHAR" property="mjedty" />
+    <result column="mjedsq" jdbcType="NUMERIC" property="mjedsq" />
+    <result column="mjedst" jdbcType="CHAR" property="mjedst" />
+    <result column="mjedft" jdbcType="CHAR" property="mjedft" />
+    <result column="mjeddt" jdbcType="NUMERIC" property="mjeddt" />
+    <result column="mjeder" jdbcType="CHAR" property="mjeder" />
+    <result column="mjeddl" jdbcType="NUMERIC" property="mjeddl" />
+    <result column="mjedsp" jdbcType="DATE" property="mjedsp" />
+    <result column="mjedbt" jdbcType="CHAR" property="mjedbt" />
+    <result column="mjpnid" jdbcType="CHAR" property="mjpnid" />
+    <result column="mjpacd" jdbcType="CHAR" property="mjpacd" />
+    <result column="mjkseq" jdbcType="NUMERIC" property="mjkseq" />
+    <result column="mjcitm" jdbcType="CHAR" property="mjcitm" />
+    <result column="mjxrt" jdbcType="CHAR" property="mjxrt" />
+    <result column="mjan8" jdbcType="NUMERIC" property="mjan8" />
+    <result column="mjvr01" jdbcType="CHAR" property="mjvr01" />
+    <result column="mjmcu" jdbcType="CHAR" property="mjmcu" />
+    <result column="mjitm" jdbcType="NUMERIC" property="mjitm" />
+    <result column="mjlitm" jdbcType="CHAR" property="mjlitm" />
+    <result column="mjaitm" jdbcType="CHAR" property="mjaitm" />
+    <result column="mjlocn" jdbcType="CHAR" property="mjlocn" />
+    <result column="mjlotn" jdbcType="CHAR" property="mjlotn" />
+    <result column="mjplot" jdbcType="CHAR" property="mjplot" />
+    <result column="mjstun" jdbcType="NUMERIC" property="mjstun" />
+    <result column="mjldsq" jdbcType="NUMERIC" property="mjldsq" />
+    <result column="mjtrno" jdbcType="NUMERIC" property="mjtrno" />
+    <result column="mjfrto" jdbcType="CHAR" property="mjfrto" />
+    <result column="mjlmcx" jdbcType="CHAR" property="mjlmcx" />
+    <result column="mjlots" jdbcType="CHAR" property="mjlots" />
+    <result column="mjlotp" jdbcType="NUMERIC" property="mjlotp" />
+    <result column="mjlotg" jdbcType="CHAR" property="mjlotg" />
+    <result column="mjldsc" jdbcType="CHAR" property="mjldsc" />
+    <result column="mjmmej" jdbcType="NUMERIC" property="mjmmej" />
+    <result column="mjdsc1" jdbcType="CHAR" property="mjdsc1" />
+    <result column="mjdsc2" jdbcType="CHAR" property="mjdsc2" />
+    <result column="mjtrdj" jdbcType="DATE" property="mjtrdj" />
+    <result column="mjtrum" jdbcType="CHAR" property="mjtrum" />
+    <result column="mjtrqt" jdbcType="NUMERIC" property="mjtrqt" />
+    <result column="mjuncs" jdbcType="NUMERIC" property="mjuncs" />
+    <result column="mjpaid" jdbcType="NUMERIC" property="mjpaid" />
+    <result column="mjmmcu" jdbcType="CHAR" property="mjmmcu" />
+    <result column="mjdmct" jdbcType="CHAR" property="mjdmct" />
+    <result column="mjdmcs" jdbcType="NUMERIC" property="mjdmcs" />
+    <result column="mjbalu" jdbcType="CHAR" property="mjbalu" />
+    <result column="mjkco" jdbcType="CHAR" property="mjkco" />
+    <result column="mjdoc" jdbcType="NUMERIC" property="mjdoc" />
+    <result column="mjdct" jdbcType="CHAR" property="mjdct" />
+    <result column="mjsfx" jdbcType="CHAR" property="mjsfx" />
+    <result column="mjjeln" jdbcType="NUMERIC" property="mjjeln" />
+    <result column="mjicu" jdbcType="NUMERIC" property="mjicu" />
+    <result column="mjdgl" jdbcType="DATE" property="mjdgl" />
+    <result column="mjglpt" jdbcType="CHAR" property="mjglpt" />
+    <result column="mjdcto" jdbcType="CHAR" property="mjdcto" />
+    <result column="mjdoco" jdbcType="NUMERIC" property="mjdoco" />
+    <result column="mjkcoo" jdbcType="CHAR" property="mjkcoo" />
+    <result column="mjlnid" jdbcType="NUMERIC" property="mjlnid" />
+    <result column="mjnlin" jdbcType="NUMERIC" property="mjnlin" />
+    <result column="mjtrex" jdbcType="CHAR" property="mjtrex" />
+    <result column="mjtref" jdbcType="CHAR" property="mjtref" />
+    <result column="mjrcd" jdbcType="CHAR" property="mjrcd" />
+    <result column="mjcrcd" jdbcType="CHAR" property="mjcrcd" />
+    <result column="mjcrr" jdbcType="NUMERIC" property="mjcrr" />
+    <result column="mjcdec" jdbcType="CHAR" property="mjcdec" />
+    <result column="mjani" jdbcType="CHAR" property="mjani" />
+    <result column="mjasii" jdbcType="CHAR" property="mjasii" />
+    <result column="mjsbl" jdbcType="CHAR" property="mjsbl" />
+    <result column="mjsblt" jdbcType="CHAR" property="mjsblt" />
+    <result column="mjwr01" jdbcType="CHAR" property="mjwr01" />
+    <result column="mjurcd" jdbcType="CHAR" property="mjurcd" />
+    <result column="mjurdt" jdbcType="NUMERIC" property="mjurdt" />
+    <result column="mjurat" jdbcType="NUMERIC" property="mjurat" />
+    <result column="mjurab" jdbcType="NUMERIC" property="mjurab" />
+    <result column="mjurrf" jdbcType="CHAR" property="mjurrf" />
+    <result column="mjtorg" jdbcType="CHAR" property="mjtorg" />
+    <result column="mjuser" jdbcType="CHAR" property="mjuser" />
+    <result column="mjpid" jdbcType="CHAR" property="mjpid" />
+    <result column="mjjobn" jdbcType="CHAR" property="mjjobn" />
+    <result column="mjupmj" jdbcType="DATE" property="mjupmj" />
+    <result column="mjtday" jdbcType="VARCHAR" property="mjtday" />
+    <result column="mjsqor" jdbcType="NUMERIC" property="mjsqor" />
+    <result column="mjuom2" jdbcType="CHAR" property="mjuom2" />
+    <result column="mjlotc" jdbcType="CHAR" property="mjlotc" />
+    <result column="mjgan8" jdbcType="NUMERIC" property="mjgan8" />
+    <result column="mjpmpn" jdbcType="CHAR" property="mjpmpn" />
+    <result column="mjpns" jdbcType="NUMERIC" property="mjpns" />
+    <result column="mjorig" jdbcType="CHAR" property="mjorig" />
+    <result column="mjflag" jdbcType="CHAR" property="mjflag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    mjedoc, mjedct, mjekco, mjedln, mjedty, mjedsq, mjedst, mjedft, mjeddt, mjeder, mjeddl, 
+    mjedsp, mjedbt, mjpnid, mjpacd, mjkseq, mjcitm, mjxrt, mjan8, mjvr01, mjmcu, mjitm, 
+    mjlitm, mjaitm, mjlocn, mjlotn, mjplot, mjstun, mjldsq, mjtrno, mjfrto, mjlmcx, mjlots, 
+    mjlotp, mjlotg, mjldsc, mjmmej, mjdsc1, mjdsc2, mjtrdj, mjtrum, mjtrqt, mjuncs, mjpaid, 
+    mjmmcu, mjdmct, mjdmcs, mjbalu, mjkco, mjdoc, mjdct, mjsfx, mjjeln, mjicu, mjdgl, 
+    mjglpt, mjdcto, mjdoco, mjkcoo, mjlnid, mjnlin, mjtrex, mjtref, mjrcd, mjcrcd, mjcrr, 
+    mjcdec, mjani, mjasii, mjsbl, mjsblt, mjwr01, mjurcd, mjurdt, mjurat, mjurab, mjurrf, 
+    mjtorg, mjuser, mjpid, mjjobn, mjupmj, mjtday, mjsqor, mjuom2, mjlotc, mjgan8, mjpmpn, 
+    mjpns, mjorig, mjflag
+  </sql>
+
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K0922DO">
+    insert into f58k0922 (
+    <include refid="Base_Column_List"/>
+    )
+    values (#{mjedoc,jdbcType=NUMERIC}, #{mjedct,jdbcType=CHAR}, #{mjekco,jdbcType=CHAR}, 
+      #{mjedln,jdbcType=NUMERIC}, #{mjedty,jdbcType=CHAR}, #{mjedsq,jdbcType=NUMERIC}, 
+      #{mjedst,jdbcType=CHAR}, #{mjedft,jdbcType=CHAR}, #{mjeddt,jdbcType=NUMERIC}, #{mjeder,jdbcType=CHAR}, 
+      #{mjeddl,jdbcType=NUMERIC}, #{mjedsp,jdbcType=DATE}, #{mjedbt,jdbcType=CHAR}, #{mjpnid,jdbcType=CHAR}, 
+      #{mjpacd,jdbcType=CHAR}, #{mjkseq,jdbcType=NUMERIC}, #{mjcitm,jdbcType=CHAR}, #{mjxrt,jdbcType=CHAR}, 
+      #{mjan8,jdbcType=NUMERIC}, #{mjvr01,jdbcType=CHAR}, #{mjmcu,jdbcType=CHAR}, #{mjitm,jdbcType=NUMERIC}, 
+      #{mjlitm,jdbcType=CHAR}, #{mjaitm,jdbcType=CHAR}, #{mjlocn,jdbcType=CHAR}, #{mjlotn,jdbcType=CHAR}, 
+      #{mjplot,jdbcType=CHAR}, #{mjstun,jdbcType=NUMERIC}, #{mjldsq,jdbcType=NUMERIC}, 
+      #{mjtrno,jdbcType=NUMERIC}, #{mjfrto,jdbcType=CHAR}, #{mjlmcx,jdbcType=CHAR}, #{mjlots,jdbcType=CHAR}, 
+      #{mjlotp,jdbcType=NUMERIC}, #{mjlotg,jdbcType=CHAR}, #{mjldsc,jdbcType=CHAR}, #{mjmmej,jdbcType=NUMERIC}, 
+      #{mjdsc1,jdbcType=CHAR}, #{mjdsc2,jdbcType=CHAR}, #{mjtrdj,jdbcType=DATE}, #{mjtrum,jdbcType=CHAR}, 
+      #{mjtrqt,jdbcType=NUMERIC}, #{mjuncs,jdbcType=NUMERIC}, #{mjpaid,jdbcType=NUMERIC}, 
+      #{mjmmcu,jdbcType=CHAR}, #{mjdmct,jdbcType=CHAR}, #{mjdmcs,jdbcType=NUMERIC}, #{mjbalu,jdbcType=CHAR}, 
+      #{mjkco,jdbcType=CHAR}, #{mjdoc,jdbcType=NUMERIC}, #{mjdct,jdbcType=CHAR}, #{mjsfx,jdbcType=CHAR}, 
+      #{mjjeln,jdbcType=NUMERIC}, #{mjicu,jdbcType=NUMERIC}, #{mjdgl,jdbcType=DATE}, 
+      #{mjglpt,jdbcType=CHAR}, #{mjdcto,jdbcType=CHAR}, #{mjdoco,jdbcType=NUMERIC}, #{mjkcoo,jdbcType=CHAR}, 
+      #{mjlnid,jdbcType=NUMERIC}, #{mjnlin,jdbcType=NUMERIC}, #{mjtrex,jdbcType=CHAR}, 
+      #{mjtref,jdbcType=CHAR}, #{mjrcd,jdbcType=CHAR}, #{mjcrcd,jdbcType=CHAR}, #{mjcrr,jdbcType=NUMERIC}, 
+      #{mjcdec,jdbcType=CHAR}, #{mjani,jdbcType=CHAR}, #{mjasii,jdbcType=CHAR}, #{mjsbl,jdbcType=CHAR}, 
+      #{mjsblt,jdbcType=CHAR}, #{mjwr01,jdbcType=CHAR}, #{mjurcd,jdbcType=CHAR}, #{mjurdt,jdbcType=NUMERIC}, 
+      #{mjurat,jdbcType=NUMERIC}, #{mjurab,jdbcType=NUMERIC}, #{mjurrf,jdbcType=CHAR}, 
+      #{mjtorg,jdbcType=CHAR}, #{mjuser,jdbcType=CHAR}, #{mjpid,jdbcType=CHAR}, #{mjjobn,jdbcType=CHAR}, 
+      #{mjupmj,jdbcType=DATE}, #{mjtday,jdbcType=VARCHAR}, #{mjsqor,jdbcType=NUMERIC}, 
+      #{mjuom2,jdbcType=CHAR}, #{mjlotc,jdbcType=CHAR}, #{mjgan8,jdbcType=NUMERIC}, #{mjpmpn,jdbcType=CHAR}, 
+      #{mjpns,jdbcType=NUMERIC}, #{mjorig,jdbcType=CHAR}, #{mjflag,jdbcType=CHAR})
+  </insert>
+
+  <select id="select"
+          parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K0922DO"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from f58k0922
+    where 1=1
+    <!--<if test="channelId != null">
+      and channel_id = #{channelId}
+    </if>-->
+  </select>
+
+</mapper>

@@ -1,0 +1,68 @@
+#APP_NAME项目的Deployment API描述#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: APP_NAME-deploy
+  namespace: DEST_NAMESPACE #所属的namespace
+  labels:
+    app: APP_NAME #Pod的标签，将在Service中使用
+ #   version: 1 #版本模板占位符，将在实际更新时被替换为实际的版本号
+spec:
+  revisionHistoryLimit: 15 #记录版本数
+  replicas: 1 #初始化副本数量
+  selector:
+    matchLabels:
+      app: APP_NAME
+  template:
+    metadata:
+      labels:
+        app: APP_NAME #Pod的标签，将在Service中使用
+    spec:
+      imagePullSecrets:
+      - name: nexusregistrykey
+      containers:
+      - name: APP_NAME #容器的名字
+        image: APP_DOCKER_IMAGE #容器所使用的镜像及其版本;命名空间、版本模板占位符，将在实际更新时被替换为实际的命名空间、版本号
+        ports:
+        - name: web
+          containerPort: 80 #容器内暴露的端口
+        env: #容器内提供的可修改环境变量
+        - name: JAVA_OPTS
+          value: APP_JAVA_OPTS
+        resources:
+          limits:
+            cpu: APP_MAX_CPU
+            memory: APP_MAX_MEMORY
+          requests:
+            cpu: APP_MIN_CPU
+            memory: APP_MIN_MEMORY
+---
+#APP_NAME项目的Service API描述#
+apiVersion: v1
+kind: Service
+metadata:
+  name: APP_NAME-svc
+  namespace: default #所属的namespace
+spec:
+  ports:
+    - name: web
+      port: 80
+      targetPort: 80 #APP_NAME项目的容器所暴露的端口
+  selector:
+    app: APP_NAME #APP_NAME项目的Pod的标签
+---
+#APP_NAME项目的Ingress API描述#
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: APP_NAME-ingress
+  namespace: DEST_NAMESPACE #所属的namespace
+spec:
+  rules:
+  - host: DEST_INGRESS_HOST #路由的host
+    http:
+      paths:
+        - path: / #路由的路径
+          backend:
+            serviceName: APP_NAME-svc #所指向的Service Name
+            servicePort: 80 #Service所使用的端口

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.mapper.F58K4771DOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K4771DO">
+    <id column="syedoc" jdbcType="NUMERIC" property="syedoc" />
+    <id column="syedct" jdbcType="CHAR" property="syedct" />
+    <id column="syekco" jdbcType="CHAR" property="syekco" />
+    <result column="syedty" jdbcType="CHAR" property="syedty" />
+    <result column="syedsq" jdbcType="NUMERIC" property="syedsq" />
+    <result column="syedln" jdbcType="NUMERIC" property="syedln" />
+    <result column="syedst" jdbcType="CHAR" property="syedst" />
+    <result column="syedft" jdbcType="CHAR" property="syedft" />
+    <result column="syeddt" jdbcType="NUMERIC" property="syeddt" />
+    <result column="syeder" jdbcType="CHAR" property="syeder" />
+    <result column="syeddl" jdbcType="NUMERIC" property="syeddl" />
+    <result column="syedsp" jdbcType="CHAR" property="syedsp" />
+    <result column="syedbt" jdbcType="CHAR" property="syedbt" />
+    <result column="sypnid" jdbcType="CHAR" property="sypnid" />
+    <result column="sytpur" jdbcType="CHAR" property="sytpur" />
+    <result column="syraty" jdbcType="CHAR" property="syraty" />
+    <result column="sykcoo" jdbcType="CHAR" property="sykcoo" />
+    <result column="sydoco" jdbcType="NUMERIC" property="sydoco" />
+    <result column="sydcto" jdbcType="CHAR" property="sydcto" />
+    <result column="sysfxo" jdbcType="CHAR" property="sysfxo" />
+    <result column="symcu" jdbcType="CHAR" property="symcu" />
+    <result column="syokco" jdbcType="CHAR" property="syokco" />
+    <result column="syoorn" jdbcType="CHAR" property="syoorn" />
+    <result column="syocto" jdbcType="CHAR" property="syocto" />
+    <result column="syrkco" jdbcType="CHAR" property="syrkco" />
+    <result column="syrorn" jdbcType="CHAR" property="syrorn" />
+    <result column="syrcto" jdbcType="CHAR" property="syrcto" />
+    <result column="syan8" jdbcType="NUMERIC" property="syan8" />
+    <result column="syshan" jdbcType="NUMERIC" property="syshan" />
+    <result column="sydrqj" jdbcType="NUMERIC" property="sydrqj" />
+    <result column="sytrdj" jdbcType="NUMERIC" property="sytrdj" />
+    <result column="sypddj" jdbcType="NUMERIC" property="sypddj" />
+    <result column="syopdj" jdbcType="NUMERIC" property="syopdj" />
+    <result column="syaddj" jdbcType="DATE" property="syaddj" />
+    <result column="sycndj" jdbcType="NUMERIC" property="sycndj" />
+    <result column="sypefj" jdbcType="NUMERIC" property="sypefj" />
+    <result column="syppdj" jdbcType="NUMERIC" property="syppdj" />
+    <result column="sypsdj" jdbcType="NUMERIC" property="sypsdj" />
+    <result column="syvr01" jdbcType="CHAR" property="syvr01" />
+    <result column="syvr02" jdbcType="CHAR" property="syvr02" />
+    <result column="sydel1" jdbcType="CHAR" property="sydel1" />
+    <result column="sydel2" jdbcType="CHAR" property="sydel2" />
+    <result column="syrmk" jdbcType="CHAR" property="syrmk" />
+    <result column="sydesc" jdbcType="CHAR" property="sydesc" />
+    <result column="syinmg" jdbcType="CHAR" property="syinmg" />
+    <result column="syasn" jdbcType="CHAR" property="syasn" />
+    <result column="syprgp" jdbcType="CHAR" property="syprgp" />
+    <result column="syptc" jdbcType="CHAR" property="syptc" />
+    <result column="syexr1" jdbcType="CHAR" property="syexr1" />
+    <result column="sytxa1" jdbcType="CHAR" property="sytxa1" />
+    <result column="sytxct" jdbcType="CHAR" property="sytxct" />
+    <result column="syatxt" jdbcType="CHAR" property="syatxt" />
+    <result column="syhold" jdbcType="CHAR" property="syhold" />
+    <result column="syinvc" jdbcType="NUMERIC" property="syinvc" />
+    <result column="syntr" jdbcType="CHAR" property="syntr" />
+    <result column="sycnid" jdbcType="CHAR" property="sycnid" />
+    <result column="syfrth" jdbcType="CHAR" property="syfrth" />
+    <result column="syzon" jdbcType="CHAR" property="syzon" />
+    <result column="syanby" jdbcType="NUMERIC" property="syanby" />
+    <result column="syancr" jdbcType="NUMERIC" property="syancr" />
+    <result column="symot" jdbcType="CHAR" property="symot" />
+    <result column="sycot" jdbcType="CHAR" property="sycot" />
+    <result column="syrcd" jdbcType="CHAR" property="syrcd" />
+    <result column="syfrtc" jdbcType="CHAR" property="syfrtc" />
+    <result column="syfuf1" jdbcType="CHAR" property="syfuf1" />
+    <result column="syfuf2" jdbcType="CHAR" property="syfuf2" />
+    <result column="syotot" jdbcType="NUMERIC" property="syotot" />
+    <result column="sypcrt" jdbcType="NUMERIC" property="sypcrt" />
+    <result column="syrtnr" jdbcType="CHAR" property="syrtnr" />
+    <result column="sywumd" jdbcType="CHAR" property="sywumd" />
+    <result column="syvumd" jdbcType="CHAR" property="syvumd" />
+    <result column="sypurg" jdbcType="CHAR" property="sypurg" />
+    <result column="sylgct" jdbcType="CHAR" property="sylgct" />
+    <result column="syprom" jdbcType="CHAR" property="syprom" />
+    <result column="symaty" jdbcType="CHAR" property="symaty" />
+    <result column="syosts" jdbcType="CHAR" property="syosts" />
+    <result column="syavch" jdbcType="CHAR" property="syavch" />
+    <result column="syprpy" jdbcType="CHAR" property="syprpy" />
+    <result column="sycrmd" jdbcType="CHAR" property="sycrmd" />
+    <result column="syprp5" jdbcType="CHAR" property="syprp5" />
+    <result column="syartg" jdbcType="CHAR" property="syartg" />
+    <result column="sycord" jdbcType="NUMERIC" property="sycord" />
+    <result column="sycrrm" jdbcType="CHAR" property="sycrrm" />
+    <result column="sycrcd" jdbcType="CHAR" property="sycrcd" />
+    <result column="sycrr" jdbcType="NUMERIC" property="sycrr" />
+    <result column="sylngp" jdbcType="CHAR" property="sylngp" />
+    <result column="syfap" jdbcType="NUMERIC" property="syfap" />
+    <result column="syorby" jdbcType="CHAR" property="syorby" />
+    <result column="sytkby" jdbcType="CHAR" property="sytkby" />
+    <result column="syurcd" jdbcType="CHAR" property="syurcd" />
+    <result column="syurdt" jdbcType="NUMERIC" property="syurdt" />
+    <result column="syurat" jdbcType="NUMERIC" property="syurat" />
+    <result column="syurab" jdbcType="NUMERIC" property="syurab" />
+    <result column="syurrf" jdbcType="CHAR" property="syurrf" />
+    <result column="sytorg" jdbcType="CHAR" property="sytorg" />
+    <result column="syuser" jdbcType="CHAR" property="syuser" />
+    <result column="sypid" jdbcType="CHAR" property="sypid" />
+    <result column="syjobn" jdbcType="CHAR" property="syjobn" />
+    <result column="syupmj" jdbcType="DATE" property="syupmj" />
+    <result column="sytday" jdbcType="VARCHAR" property="sytday" />
+    <result column="sybcrc" jdbcType="CHAR" property="sybcrc" />
+    <result column="sydcd" jdbcType="NUMERIC" property="sydcd" />
+    <result column="sydcp" jdbcType="NUMERIC" property="sydcp" />
+    <result column="syndtp" jdbcType="NUMERIC" property="syndtp" />
+    <result column="sypxdd" jdbcType="NUMERIC" property="sypxdd" />
+    <result column="sypxdm" jdbcType="NUMERIC" property="sypxdm" />
+    <result column="sydrqt" jdbcType="NUMERIC" property="sydrqt" />
+    <result column="syrsht" jdbcType="NUMERIC" property="syrsht" />
+    <result column="sydvan" jdbcType="NUMERIC" property="sydvan" />
+    <result column="syvr03" jdbcType="CHAR" property="syvr03" />
+    <result column="symkfr" jdbcType="NUMERIC" property="symkfr" />
+    <result column="sygan8" jdbcType="NUMERIC" property="sygan8" />
+    <result column="sygshan" jdbcType="NUMERIC" property="sygshan" />
+    <result column="sygcars" jdbcType="NUMERIC" property="sygcars" />
+    <result column="sygdvan" jdbcType="NUMERIC" property="sygdvan" />
+    <result column="sygmkfr" jdbcType="NUMERIC" property="sygmkfr" />
+    <result column="symcu2" jdbcType="CHAR" property="symcu2" />
+    <result column="syindate" jdbcType="DATE" property="syindate" />
+    <result column="syinrmk" jdbcType="CHAR" property="syinrmk" />
+    <result column="syredate" jdbcType="DATE" property="syredate" />
+    <result column="syrermk" jdbcType="CHAR" property="syrermk" />
+    <result column="syukid" jdbcType="NUMERIC" property="syukid" />
+    <result column="systatus" jdbcType="CHAR" property="systatus" />
+    <result column="syflag" jdbcType="CHAR" property="syflag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    syedoc, syedct, syekco, syedty, syedsq, syedln, syedst, syedft, syeddt, syeder, syeddl, 
+    syedsp, syedbt, sypnid, sytpur, syraty, sykcoo, sydoco, sydcto, sysfxo, symcu, syokco, 
+    syoorn, syocto, syrkco, syrorn, syrcto, syan8, syshan, sydrqj, sytrdj, sypddj, syopdj, 
+    syaddj, sycndj, sypefj, syppdj, sypsdj, syvr01, syvr02, sydel1, sydel2, syrmk, sydesc, 
+    syinmg, syasn, syprgp, syptc, syexr1, sytxa1, sytxct, syatxt, syhold, syinvc, syntr, 
+    sycnid, syfrth, syzon, syanby, syancr, symot, sycot, syrcd, syfrtc, syfuf1, syfuf2, 
+    syotot, sypcrt, syrtnr, sywumd, syvumd, sypurg, sylgct, syprom, symaty, syosts, syavch, 
+    syprpy, sycrmd, syprp5, syartg, sycord, sycrrm, sycrcd, sycrr, sylngp, syfap, syorby, 
+    sytkby, syurcd, syurdt, syurat, syurab, syurrf, sytorg, syuser, sypid, syjobn, syupmj, 
+    sytday, sybcrc, sydcd, sydcp, syndtp, sypxdd, sypxdm, sydrqt, syrsht, sydvan, syvr03, 
+    symkfr, sygan8, sygshan, sygcars, sygdvan, sygmkfr, symcu2, syindate, syinrmk, syredate, 
+    syrermk, syukid, systatus, syflag
+  </sql>
+
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K4771DO">
+    insert into f58k4771 (
+    <include refid="Base_Column_List"/>
+    )
+    values (#{syedoc,jdbcType=NUMERIC}, #{syedct,jdbcType=CHAR}, #{syekco,jdbcType=CHAR}, 
+      #{syedty,jdbcType=CHAR}, #{syedsq,jdbcType=NUMERIC}, #{syedln,jdbcType=NUMERIC}, 
+      #{syedst,jdbcType=CHAR}, #{syedft,jdbcType=CHAR}, #{syeddt,jdbcType=NUMERIC}, #{syeder,jdbcType=CHAR}, 
+      #{syeddl,jdbcType=NUMERIC}, #{syedsp,jdbcType=CHAR}, #{syedbt,jdbcType=CHAR}, #{sypnid,jdbcType=CHAR}, 
+      #{sytpur,jdbcType=CHAR}, #{syraty,jdbcType=CHAR}, #{sykcoo,jdbcType=CHAR}, #{sydoco,jdbcType=NUMERIC}, 
+      #{sydcto,jdbcType=CHAR}, #{sysfxo,jdbcType=CHAR}, #{symcu,jdbcType=CHAR}, #{syokco,jdbcType=CHAR}, 
+      #{syoorn,jdbcType=CHAR}, #{syocto,jdbcType=CHAR}, #{syrkco,jdbcType=CHAR}, #{syrorn,jdbcType=CHAR}, 
+      #{syrcto,jdbcType=CHAR}, #{syan8,jdbcType=NUMERIC}, #{syshan,jdbcType=NUMERIC}, 
+      #{sydrqj,jdbcType=NUMERIC}, #{sytrdj,jdbcType=NUMERIC}, #{sypddj,jdbcType=NUMERIC}, 
+      #{syopdj,jdbcType=NUMERIC}, #{syaddj,jdbcType=DATE}, #{sycndj,jdbcType=NUMERIC}, 
+      #{sypefj,jdbcType=NUMERIC}, #{syppdj,jdbcType=NUMERIC}, #{sypsdj,jdbcType=NUMERIC}, 
+      #{syvr01,jdbcType=CHAR}, #{syvr02,jdbcType=CHAR}, #{sydel1,jdbcType=CHAR}, #{sydel2,jdbcType=CHAR}, 
+      #{syrmk,jdbcType=CHAR}, #{sydesc,jdbcType=CHAR}, #{syinmg,jdbcType=CHAR}, #{syasn,jdbcType=CHAR}, 
+      #{syprgp,jdbcType=CHAR}, #{syptc,jdbcType=CHAR}, #{syexr1,jdbcType=CHAR}, #{sytxa1,jdbcType=CHAR}, 
+      #{sytxct,jdbcType=CHAR}, #{syatxt,jdbcType=CHAR}, #{syhold,jdbcType=CHAR}, #{syinvc,jdbcType=NUMERIC}, 
+      #{syntr,jdbcType=CHAR}, #{sycnid,jdbcType=CHAR}, #{syfrth,jdbcType=CHAR}, #{syzon,jdbcType=CHAR}, 
+      #{syanby,jdbcType=NUMERIC}, #{syancr,jdbcType=NUMERIC}, #{symot,jdbcType=CHAR}, 
+      #{sycot,jdbcType=CHAR}, #{syrcd,jdbcType=CHAR}, #{syfrtc,jdbcType=CHAR}, #{syfuf1,jdbcType=CHAR}, 
+      #{syfuf2,jdbcType=CHAR}, #{syotot,jdbcType=NUMERIC}, #{sypcrt,jdbcType=NUMERIC}, 
+      #{syrtnr,jdbcType=CHAR}, #{sywumd,jdbcType=CHAR}, #{syvumd,jdbcType=CHAR}, #{sypurg,jdbcType=CHAR}, 
+      #{sylgct,jdbcType=CHAR}, #{syprom,jdbcType=CHAR}, #{symaty,jdbcType=CHAR}, #{syosts,jdbcType=CHAR}, 
+      #{syavch,jdbcType=CHAR}, #{syprpy,jdbcType=CHAR}, #{sycrmd,jdbcType=CHAR}, #{syprp5,jdbcType=CHAR}, 
+      #{syartg,jdbcType=CHAR}, #{sycord,jdbcType=NUMERIC}, #{sycrrm,jdbcType=CHAR}, #{sycrcd,jdbcType=CHAR}, 
+      #{sycrr,jdbcType=NUMERIC}, #{sylngp,jdbcType=CHAR}, #{syfap,jdbcType=NUMERIC}, 
+      #{syorby,jdbcType=CHAR}, #{sytkby,jdbcType=CHAR}, #{syurcd,jdbcType=CHAR}, #{syurdt,jdbcType=NUMERIC}, 
+      #{syurat,jdbcType=NUMERIC}, #{syurab,jdbcType=NUMERIC}, #{syurrf,jdbcType=CHAR}, 
+      #{sytorg,jdbcType=CHAR}, #{syuser,jdbcType=CHAR}, #{sypid,jdbcType=CHAR}, #{syjobn,jdbcType=CHAR}, 
+      #{syupmj,jdbcType=DATE}, #{sytday,jdbcType=VARCHAR}, #{sybcrc,jdbcType=CHAR}, #{sydcd,jdbcType=NUMERIC}, 
+      #{sydcp,jdbcType=NUMERIC}, #{syndtp,jdbcType=NUMERIC}, #{sypxdd,jdbcType=NUMERIC}, 
+      #{sypxdm,jdbcType=NUMERIC}, #{sydrqt,jdbcType=NUMERIC}, #{syrsht,jdbcType=NUMERIC}, 
+      #{sydvan,jdbcType=NUMERIC}, #{syvr03,jdbcType=CHAR}, #{symkfr,jdbcType=NUMERIC}, 
+      #{sygan8,jdbcType=NUMERIC}, #{sygshan,jdbcType=NUMERIC}, #{sygcars,jdbcType=NUMERIC}, 
+      #{sygdvan,jdbcType=NUMERIC}, #{sygmkfr,jdbcType=NUMERIC}, #{symcu2,jdbcType=CHAR}, 
+      #{syindate,jdbcType=DATE}, #{syinrmk,jdbcType=CHAR}, #{syredate,jdbcType=DATE}, 
+      #{syrermk,jdbcType=CHAR}, #{syukid,jdbcType=NUMERIC}, #{systatus,jdbcType=CHAR}, 
+      #{syflag,jdbcType=CHAR})
+  </insert>
+
+  <select id="select"
+          parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K4771DO"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from f58k4771
+    where 1=1
+    <!--<if test="channelId != null">
+      and channel_id = #{channelId}
+    </if>-->
+  </select>
+
+</mapper>

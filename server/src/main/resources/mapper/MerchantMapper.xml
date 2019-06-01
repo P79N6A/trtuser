@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.MerchantMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.MerchantDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="gmt_create" jdbcType="DATE" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="DATE" property="gmtModified" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="version" jdbcType="BIGINT" property="version" />
+    <result column="active" jdbcType="CHAR" property="active" />
+    <result column="org_id" jdbcType="BIGINT" property="orgId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="principal" jdbcType="VARCHAR" property="principal" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="fax" jdbcType="VARCHAR" property="fax" />
+    <result column="alipay_account" jdbcType="VARCHAR" property="alipayAccount" />
+    <result column="ledger_account_rate" jdbcType="BIGINT" property="ledgerAccountRate" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="extension" jdbcType="VARCHAR" property="extension" />
+    <result column="parent_org_id" jdbcType="BIGINT" property="parentOrgId" />
+    <result column="app_key" jdbcType="VARCHAR" property="appKey" />
+    <result column="flag" jdbcType="CHAR" property="flag" />
+    <result column="contract_code" jdbcType="VARCHAR" property="contractCode" />
+    <result column="contract_create_time" jdbcType="DATE" property="contractCreateTime" />
+    <result column="contract_start_time" jdbcType="DATE" property="contractStartTime" />
+    <result column="contract_end_time" jdbcType="DATE" property="contractEndTime" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, gmt_create, gmt_modified, creator, modifier, version, active, org_id, name, principal, 
+    phone, fax, alipay_account, ledger_account_rate, remark, code, province, city, area, 
+    address, extension, parent_org_id, app_key, flag, contract_code, contract_create_time, 
+    contract_start_time, contract_end_time, email
+  </sql>
+  <select id="selectByOrgId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from nros_merchant
+    where org_id = #{orgId,jdbcType=BIGINT}
+  </select>
+
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.MerchantDO">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select nextval('nros_merchant_id_seq')
+    </selectKey>
+    insert into nros_merchant (id, gmt_create, gmt_modified,
+    creator, modifier, version,
+    active, org_id, name, principal,
+    phone, fax, alipay_account,
+    ledger_account_rate, remark, code,
+    province, city, area,
+    address, extension, parent_org_id,
+    app_key, flag, contract_code,
+    contract_create_time, contract_start_time, contract_end_time,
+    email, state)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=DATE}, #{gmtModified,jdbcType=DATE},
+    #{creator,jdbcType=VARCHAR}, #{modifier,jdbcType=VARCHAR}, #{version,jdbcType=BIGINT},
+    #{active,jdbcType=CHAR}, #{orgId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{principal,jdbcType=VARCHAR},
+    #{phone,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{alipayAccount,jdbcType=VARCHAR},
+    #{ledgerAccountRate,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
+    #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR},
+    #{address,jdbcType=VARCHAR}, #{extension,jdbcType=VARCHAR}, #{parentOrgId,jdbcType=BIGINT},
+    #{appKey,jdbcType=VARCHAR}, #{flag,jdbcType=CHAR}, #{contractCode,jdbcType=VARCHAR},
+    #{contractCreateTime,jdbcType=DATE}, #{contractStartTime,jdbcType=DATE}, #{contractEndTime,jdbcType=DATE},
+    #{email,jdbcType=VARCHAR}, #{state,jdbcType=CHAR})
+  </insert>
+
+  <update id="updateByOrgIdSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.MerchantDO">
+    update nros_merchant
+    <set>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=DATE},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=DATE},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=BIGINT},
+      </if>
+      <if test="active != null">
+        active = #{active,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        principal = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="alipayAccount != null">
+        alipay_account = #{alipayAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="ledgerAccountRate != null">
+        ledger_account_rate = #{ledgerAccountRate,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="extension != null">
+        extension = #{extension,jdbcType=VARCHAR},
+      </if>
+      <if test="parentOrgId != null">
+        parent_org_id = #{parentOrgId,jdbcType=BIGINT},
+      </if>
+      <if test="appKey != null">
+        app_key = #{appKey,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=CHAR},
+      </if>
+      <if test="contractCode != null">
+        contract_code = #{contractCode,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCreateTime != null">
+        contract_create_time = #{contractCreateTime,jdbcType=DATE},
+      </if>
+      <if test="contractStartTime != null">
+        contract_start_time = #{contractStartTime,jdbcType=DATE},
+      </if>
+      <if test="contractEndTime != null">
+        contract_end_time = #{contractEndTime,jdbcType=DATE},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=CHAR},
+      </if>
+    </set>
+    where org_id = #{orgId,jdbcType=BIGINT}
+  </update>
+</mapper>

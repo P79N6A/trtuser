@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.generator.StoreDOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StoreDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="org_id" jdbcType="BIGINT" property="orgId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="link_man" jdbcType="VARCHAR" property="linkMan" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+    <result column="update_time" jdbcType="DATE" property="updateTime" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="zip_code" jdbcType="VARCHAR" property="zipCode" />
+    <result column="province_id" jdbcType="BIGINT" property="provinceId" />
+    <result column="city_id" jdbcType="BIGINT" property="cityId" />
+    <result column="area_id" jdbcType="BIGINT" property="areaId" />
+    <result column="syn_status" jdbcType="CHAR" property="synStatus" />
+    <result column="mdm_number" jdbcType="VARCHAR" property="mdmNumber" />
+    <result column="jde_address_code" jdbcType="BIGINT" property="jdeAddressCode" />
+    <result column="jde_company_code" jdbcType="VARCHAR" property="jdeCompanyCode" />
+    <result column="jde_number" jdbcType="VARCHAR" property="jdeNumber" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, org_id, name, number, province, area, city, latitude, longitude, address, link_man, 
+    mobile, phone, create_time, update_time, state, zip_code, province_id, city_id, area_id, 
+    syn_status, mdm_number, jde_address_code, jde_company_code, jde_number
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StoreDO">
+    select 
+    <include refid="Base_Column_List" />
+    from nros_store
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from nros_store
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StoreDO">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select nextval('nros_store_id_seq')
+    </selectKey>
+    insert into nros_store (id, org_id, name,
+      number, province, area, 
+      city, latitude, longitude, 
+      address, link_man, mobile, 
+      phone, create_time, update_time, 
+      state, zip_code, province_id, 
+      city_id, area_id, syn_status, 
+      mdm_number, jde_address_code, jde_company_code, 
+      jde_number)
+    values (#{id,jdbcType=BIGINT}, #{orgId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{number,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{linkMan,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}, 
+      #{state,jdbcType=CHAR}, #{zipCode,jdbcType=VARCHAR}, #{provinceId,jdbcType=BIGINT}, 
+      #{cityId,jdbcType=BIGINT}, #{areaId,jdbcType=BIGINT}, #{synStatus,jdbcType=CHAR}, 
+      #{mdmNumber,jdbcType=VARCHAR}, #{jdeAddressCode,jdbcType=BIGINT}, #{jdeCompanyCode,jdbcType=VARCHAR}, 
+      #{jdeNumber,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StoreDO">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select nextval('nros_store_id_seq')
+    </selectKey>
+    insert into nros_store
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      id,
+      <if test="orgId != null">
+        org_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="linkMan != null">
+        link_man,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="zipCode != null">
+        zip_code,
+      </if>
+      <if test="provinceId != null">
+        province_id,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="areaId != null">
+        area_id,
+      </if>
+      <if test="synStatus != null">
+        syn_status,
+      </if>
+      <if test="mdmNumber != null">
+        mdm_number,
+      </if>
+      <if test="jdeAddressCode != null">
+        jde_address_code,
+      </if>
+      <if test="jdeCompanyCode != null">
+        jde_company_code,
+      </if>
+      <if test="jdeNumber != null">
+        jde_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=BIGINT},
+      <if test="orgId != null">
+        #{orgId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="linkMan != null">
+        #{linkMan,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="zipCode != null">
+        #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=BIGINT},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=BIGINT},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=BIGINT},
+      </if>
+      <if test="synStatus != null">
+        #{synStatus,jdbcType=CHAR},
+      </if>
+      <if test="mdmNumber != null">
+        #{mdmNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="jdeAddressCode != null">
+        #{jdeAddressCode,jdbcType=BIGINT},
+      </if>
+      <if test="jdeCompanyCode != null">
+        #{jdeCompanyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="jdeNumber != null">
+        #{jdeNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StoreDO">
+    update nros_store
+    <set>
+      <if test="orgId != null">
+        org_id = #{orgId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="linkMan != null">
+        link_man = #{linkMan,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="zipCode != null">
+        zip_code = #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null">
+        province_id = #{provinceId,jdbcType=BIGINT},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=BIGINT},
+      </if>
+      <if test="areaId != null">
+        area_id = #{areaId,jdbcType=BIGINT},
+      </if>
+      <if test="synStatus != null">
+        syn_status = #{synStatus,jdbcType=CHAR},
+      </if>
+      <if test="mdmNumber != null">
+        mdm_number = #{mdmNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="jdeAddressCode != null">
+        jde_address_code = #{jdeAddressCode,jdbcType=BIGINT},
+      </if>
+      <if test="jdeCompanyCode != null">
+        jde_company_code = #{jdeCompanyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="jdeNumber != null">
+        jde_number = #{jdeNumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StoreDO">
+    update nros_store
+    set org_id = #{orgId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      number = #{number,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      link_man = #{linkMan,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
+      update_time = #{updateTime,jdbcType=DATE},
+      state = #{state,jdbcType=CHAR},
+      zip_code = #{zipCode,jdbcType=VARCHAR},
+      province_id = #{provinceId,jdbcType=BIGINT},
+      city_id = #{cityId,jdbcType=BIGINT},
+      area_id = #{areaId,jdbcType=BIGINT},
+      syn_status = #{synStatus,jdbcType=CHAR},
+      mdm_number = #{mdmNumber,jdbcType=VARCHAR},
+      jde_address_code = #{jdeAddressCode,jdbcType=BIGINT},
+      jde_company_code = #{jdeCompanyCode,jdbcType=VARCHAR},
+      jde_number = #{jdeNumber,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.mapper.F58A4106DOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58A4106DO">
+    <result column="MNLITM" jdbcType="VARCHAR" property="mnlitm" />
+    <result column="MNMCU" jdbcType="VARCHAR" property="mnmcu" />
+    <result column="MNEFTJ" jdbcType="DATE" property="mneftj" />
+    <result column="MNEXDJ" jdbcType="DATE" property="mnexdj" />
+    <result column="MNUPRC" jdbcType="NUMERIC" property="mnuprc" />
+    <result column="MNUSER" jdbcType="VARCHAR" property="mnuser" />
+    <result column="MNPID" jdbcType="VARCHAR" property="mnpid" />
+    <result column="MNJOBN" jdbcType="VARCHAR" property="mnjobn" />
+    <result column="MNUPMJ" jdbcType="DATE" property="mnupmj" />
+    <result column="MNTDAY" jdbcType="VARCHAR" property="mntday" />
+    <result column="MNFLAG" jdbcType="CHAR" property="mnflag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    "MNLITM","MNMCU","MNEFTJ",
+    "MNEXDJ","MNUPRC","MNUSER",
+    "MNPID","MNJOBN","MNUPMJ",
+    "MNTDAY","MNFLAG"
+  </sql>
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58A4106DO">
+    insert into f58a4106 (
+    <include refid="Base_Column_List"/>
+    )
+    values (#{mnlitm,jdbcType=VARCHAR}, #{mnmcu,jdbcType=VARCHAR}, #{mneftj,jdbcType=DATE}, 
+      #{mnexdj,jdbcType=DATE}, #{mnuprc,jdbcType=NUMERIC}, #{mnuser,jdbcType=VARCHAR}, 
+      #{mnpid,jdbcType=VARCHAR}, #{mnjobn,jdbcType=VARCHAR}, #{mnupmj,jdbcType=DATE}, 
+      #{mntday,jdbcType=VARCHAR}, #{mnflag,jdbcType=CHAR})
+  </insert>
+
+  <select id="select"
+          parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58A4106DO"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from f58a4106
+    where 1=1
+    <!--<if test="channelId != null">
+      and channel_id = #{channelId}
+    </if>-->
+  </select>
+</mapper>

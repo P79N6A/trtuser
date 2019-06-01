@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="jdeDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="url" value="${spring.datasource.jde.url}" />
+        <property name="username" value="${spring.datasource.jde.username}" />
+        <property name="password" value="${spring.datasource.jde.password}" />
+        <property name="driverClassName" value="${spring.datasource.jde.driverClassName}" />
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="${spring.datasource.jde.initialSize}" />
+        <property name="minIdle" value="${spring.datasource.jde.minIdle}" />
+        <property name="maxActive" value="${spring.datasource.jde.maxActive}" />
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${spring.datasource.jde.maxWait}" />
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="180000" />
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="3600000" />
+        <property name="validationQuery" value="SELECT 1" />
+        <property name="testWhileIdle" value="true" />
+        <property name="testOnBorrow" value="false" />
+        <property name="testOnReturn" value="false" />
+        <!-- 关闭PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="poolPreparedStatements" value="false" />
+        <property name="removeAbandoned" value="true" />
+        <property name="removeAbandonedTimeout" value="300" />
+    </bean>
+
+    <bean id="jdeTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="jdeDataSource" />
+    </bean>
+
+    <bean id="jdeTransactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager">
+            <ref local="jdeTransactionManager"/>
+        </property>
+    </bean>
+
+    <bean id="jdeSqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis/mybatis-jde.xml"/>
+        <property name="mapperLocations" value="classpath:mybatis/jde/*.xml"/>
+        <property name="dataSource" ref="jdeDataSource"/>
+    </bean>
+
+    <bean id="jdeSqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="jdeSqlSession"/>
+    </bean>
+
+</beans>

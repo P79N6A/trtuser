@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.UserOrgPrivMapper">
+
+  <sql id="Base_Column_List">
+    a.id, a.user_id, a.org_id, a.gmt_create, a.creator,b.org_id,b.parent_org_id,b.org_name
+  </sql>
+  <select id="selectByUserId" resultType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.UserOrgPriv">
+    select
+    <include refid="Base_Column_List" />
+    from nros_user_org_priv a, bfm_org b
+    where a.org_id = b.org_id and user_id = #{userId,jdbcType=BIGINT}
+  </select>
+
+  <insert id="insertByBatch" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+    insert into nros_user_org_priv (id, user_id, org_id)
+    select nextval('nros_user_org_priv_id_seq'),a.* from (
+      <foreach collection="userPrivs" item="item" index="index" separator="UNION">
+        SELECT
+        #{item.userId,jdbcType=INTEGER},
+        #{item.orgId,jdbcType=INTEGER},
+        #{gmtCreate,jdbcType=DATE},
+        #{creator,jdbcType=VARCHAR})
+      </foreach>
+    )a
+
+  </insert>
+
+
+  <delete id="deleteByUserIdAndOrgId">
+    delete from nros_user_org_priv
+    where user_id = #{userId,jdbcType=BIGINT} and org_id = #{orgId,jdbcType=BIGINT}
+  </delete>
+
+  <delete id="deleteByUserIdAndOrgIds">
+    delete from nros_user_org_priv
+    where user_id = #{userId,jdbcType=BIGINT}
+    and org_id in
+    <foreach collection="orgIds" index="index" item="item" separator="," open="(" close=")">
+        #{item}
+    </foreach>
+  </delete>
+
+</mapper>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.mapper.F58A4102DOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58A4102DO">
+    <result column="MMMCU" jdbcType="VARCHAR" property="mmmcu" />
+    <result column="MMLITM" jdbcType="VARCHAR" property="mmlitm" />
+    <result column="MMITM" jdbcType="NUMERIC" property="mmitm" />
+    <result column="MMSRP1" jdbcType="VARCHAR" property="mmsrp1" />
+    <result column="MMDL01" jdbcType="VARCHAR" property="mmdl01" />
+    <result column="MMSRP2" jdbcType="VARCHAR" property="mmsrp2" />
+    <result column="MMDL02" jdbcType="VARCHAR" property="mmdl02" />
+    <result column="MMSRP3" jdbcType="VARCHAR" property="mmsrp3" />
+    <result column="MMDL03" jdbcType="VARCHAR" property="mmdl03" />
+    <result column="MMSRP4" jdbcType="VARCHAR" property="mmsrp4" />
+    <result column="MMDL04" jdbcType="VARCHAR" property="mmdl04" />
+    <result column="MMSRP5" jdbcType="VARCHAR" property="mmsrp5" />
+    <result column="MMDL05" jdbcType="VARCHAR" property="mmdl05" />
+    <result column="MMSRP6" jdbcType="VARCHAR" property="mmsrp6" />
+    <result column="MMDL06" jdbcType="VARCHAR" property="mmdl06" />
+    <result column="MMSRP7" jdbcType="VARCHAR" property="mmsrp7" />
+    <result column="MMDL07" jdbcType="VARCHAR" property="mmdl07" />
+    <result column="MMSRP8" jdbcType="VARCHAR" property="mmsrp8" />
+    <result column="MMDL08" jdbcType="VARCHAR" property="mmdl08" />
+    <result column="MMSRP9" jdbcType="VARCHAR" property="mmsrp9" />
+    <result column="MMDL09" jdbcType="VARCHAR" property="mmdl09" />
+    <result column="MMSRP0" jdbcType="VARCHAR" property="mmsrp0" />
+    <result column="MMDL10" jdbcType="VARCHAR" property="mmdl10" />
+    <result column="MMPRP1" jdbcType="VARCHAR" property="mmprp1" />
+    <result column="MMDL11" jdbcType="VARCHAR" property="mmdl11" />
+    <result column="MMPRP2" jdbcType="VARCHAR" property="mmprp2" />
+    <result column="MMDL12" jdbcType="VARCHAR" property="mmdl12" />
+    <result column="MMCITM" jdbcType="VARCHAR" property="mmcitm" />
+    <result column="MMSRTX" jdbcType="VARCHAR" property="mmsrtx" />
+    <result column="MMDSC3" jdbcType="VARCHAR" property="mmdsc3" />
+    <result column="MMUOM1" jdbcType="VARCHAR" property="mmuom1" />
+    <result column="MMDL13" jdbcType="VARCHAR" property="mmdl13" />
+    <result column="MMMKT3" jdbcType="VARCHAR" property="mmmkt3" />
+    <result column="MMDSC1" jdbcType="VARCHAR" property="mmdsc1" />
+    <result column="MMDSC2" jdbcType="VARCHAR" property="mmdsc2" />
+    <result column="MMSLD" jdbcType="VARCHAR" property="mmsld" />
+    <result column="MMDL14" jdbcType="VARCHAR" property="mmdl14" />
+    <result column="MMCONV" jdbcType="VARCHAR" property="mmconv" />
+    <result column="MMSRCE" jdbcType="CHAR" property="mmsrce" />
+    <result column="MMSTKT" jdbcType="CHAR" property="mmstkt" />
+    <result column="MMGLPT" jdbcType="VARCHAR" property="mmglpt" />
+    <result column="MMVEND" jdbcType="NUMERIC" property="mmvend" />
+    <result column="MMALPH" jdbcType="VARCHAR" property="mmalph" />
+    <result column="MMUSER" jdbcType="VARCHAR" property="mmuser" />
+    <result column="MMPID" jdbcType="VARCHAR" property="mmpid" />
+    <result column="MMJOBN" jdbcType="VARCHAR" property="mmjobn" />
+    <result column="MMUPMJ" jdbcType="DATE" property="mmupmj" />
+    <result column="MMTDAY" jdbcType="VARCHAR" property="mmtday" />
+    <result column="MMFLAG" jdbcType="CHAR" property="mmflag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    "MMMCU", "MMLITM", "MMITM",
+    "MMSRP1", "MMDL01", "MMSRP2",
+    "MMDL02", "MMSRP3", "MMDL03",
+    "MMSRP4", "MMDL04", "MMSRP5",
+    "MMDL05", "MMSRP6", "MMDL06",
+    "MMSRP7", "MMDL07", "MMSRP8",
+    "MMDL08", "MMSRP9", "MMDL09",
+    "MMSRP0", "MMDL10", "MMPRP1",
+    "MMDL11", "MMPRP2", "MMDL12",
+    "MMCITM", "MMSRTX", "MMDSC3",
+    "MMUOM1", "MMDL13", "MMMKT3",
+    "MMDSC1", "MMDSC2", "MMSLD",
+    "MMDL14", "MMCONV", "MMSRCE",
+    "MMSTKT", "MMGLPT", "MMVEND",
+    "MMALPH", "MMUSER", "MMPID",
+    "MMJOBN", "MMUPMJ", "MMTDAY",
+    "MMFLAG"
+  </sql>
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58A4102DO">
+    insert into f58a4102 (
+    <include refid="Base_Column_List"/>
+    )
+    values (#{mmmcu,jdbcType=VARCHAR}, #{mmlitm,jdbcType=VARCHAR}, #{mmitm,jdbcType=NUMERIC}, 
+      #{mmsrp1,jdbcType=VARCHAR}, #{mmdl01,jdbcType=VARCHAR}, #{mmsrp2,jdbcType=VARCHAR}, 
+      #{mmdl02,jdbcType=VARCHAR}, #{mmsrp3,jdbcType=VARCHAR}, #{mmdl03,jdbcType=VARCHAR}, 
+      #{mmsrp4,jdbcType=VARCHAR}, #{mmdl04,jdbcType=VARCHAR}, #{mmsrp5,jdbcType=VARCHAR}, 
+      #{mmdl05,jdbcType=VARCHAR}, #{mmsrp6,jdbcType=VARCHAR}, #{mmdl06,jdbcType=VARCHAR}, 
+      #{mmsrp7,jdbcType=VARCHAR}, #{mmdl07,jdbcType=VARCHAR}, #{mmsrp8,jdbcType=VARCHAR}, 
+      #{mmdl08,jdbcType=VARCHAR}, #{mmsrp9,jdbcType=VARCHAR}, #{mmdl09,jdbcType=VARCHAR}, 
+      #{mmsrp0,jdbcType=VARCHAR}, #{mmdl10,jdbcType=VARCHAR}, #{mmprp1,jdbcType=VARCHAR}, 
+      #{mmdl11,jdbcType=VARCHAR}, #{mmprp2,jdbcType=VARCHAR}, #{mmdl12,jdbcType=VARCHAR}, 
+      #{mmcitm,jdbcType=VARCHAR}, #{mmsrtx,jdbcType=VARCHAR}, #{mmdsc3,jdbcType=VARCHAR}, 
+      #{mmuom1,jdbcType=VARCHAR}, #{mmdl13,jdbcType=VARCHAR}, #{mmmkt3,jdbcType=VARCHAR}, 
+      #{mmdsc1,jdbcType=VARCHAR}, #{mmdsc2,jdbcType=VARCHAR}, #{mmsld,jdbcType=VARCHAR}, 
+      #{mmdl14,jdbcType=VARCHAR}, #{mmconv,jdbcType=VARCHAR}, #{mmsrce,jdbcType=CHAR}, 
+      #{mmstkt,jdbcType=CHAR}, #{mmglpt,jdbcType=VARCHAR}, #{mmvend,jdbcType=NUMERIC}, 
+      #{mmalph,jdbcType=VARCHAR}, #{mmuser,jdbcType=VARCHAR}, #{mmpid,jdbcType=VARCHAR}, 
+      #{mmjobn,jdbcType=VARCHAR}, #{mmupmj,jdbcType=DATE}, #{mmtday,jdbcType=VARCHAR}, 
+      #{mmflag,jdbcType=CHAR})
+  </insert>
+
+  <select id="select"
+          parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58A4102DO"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from f58a4102
+    where 1=1
+    <!--<if test="channelId != null">
+      and channel_id = #{channelId}
+    </if>-->
+  </select>
+
+</mapper>

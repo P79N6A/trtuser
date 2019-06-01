@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/
+/classes/
+/client/target/
+/server/target/
+/server/nrositem-server.iml
+/client/nrositem-client.iml
+/nrositem.iml
+/logs/
+*.iml
+/start/target/
+

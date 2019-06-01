@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.WarehouseMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <id column="org_id" jdbcType="BIGINT" property="orgId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="contact" jdbcType="VARCHAR" property="contact" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="enable" jdbcType="CHAR" property="enable" />
+    <result column="extension_number" jdbcType="VARCHAR" property="extensionNumber" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+    <result column="store_name" jdbcType="VARCHAR" property="storeName" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="zip_code" jdbcType="VARCHAR" property="zipCode" />
+    <result column="share_flag" jdbcType="CHAR" property="shareFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, org_id, name, number, address, province, city, area, contact, state, enable,
+    extension_number, mobile, store_id, store_name, telephone, type, zip_code, share_flag
+  </sql>
+
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select nextval('nros_warehouse_id_seq')
+    </selectKey>
+    insert into nros_warehouse (id, org_id, name,
+    number, address, province,
+    city, area, contact,
+    state, enable, extension_number,
+    mobile, store_id, store_name,
+    telephone, type, zip_code,
+    share_flag)
+    values (#{id,jdbcType=BIGINT}, #{orgId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},
+    #{number,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
+    #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR},
+    #{state,jdbcType=CHAR}, #{enable,jdbcType=CHAR}, #{extensionNumber,jdbcType=VARCHAR},
+    #{mobile,jdbcType=VARCHAR}, #{storeId,jdbcType=BIGINT}, #{storeName,jdbcType=VARCHAR},
+    #{telephone,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{zipCode,jdbcType=VARCHAR},
+    #{shareFlag,jdbcType=CHAR})
+  </insert>
+
+  <select id="selectWarehouseList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from nros_warehouse tw
+    where 1=1
+      <if test="warehouseDO.state != null and warehouseDO.state != ''">
+          and tw.state = #{warehouseDO.state}
+      </if>
+    <if test="warehouseDO.type != null and warehouseDO.type != ''">
+      and tw.type = #{warehouseDO.type}
+    </if>
+    <if test="warehouseDO.name != null and warehouseDO.name != ''">
+      and tw.name like concat('%',#{warehouseDO.name},'%')
+    </if>
+    <if test="warehouseDO.number != null and warehouseDO.number != ''">
+      and tw.number like concat('%',#{warehouseDO.number},'%')
+    </if>
+
+  </select>
+  
+  <select id="pageWarehousesNotInOrgIds" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List"/>
+    from nros_warehouse tw
+    where 1 = 1
+
+    <if test="orgIds != null and orgIds.size() > 0">
+      and tw.org_id not in
+      <foreach collection="orgIds" index="index" item="item" open="(" close=")" separator=",">
+        #{item}
+      </foreach>
+    </if>
+
+    <if test="warehouseDO.state != null and warehouseDO.state != ''">
+      and tw.state = #{warehouseDO.state}
+    </if>
+    <if test="warehouseDO.type != null and warehouseDO.type != ''">
+      and tw.type = #{warehouseDO.type}
+    </if>
+    <if test="warehouseDO.name != null and warehouseDO.name != ''">
+      and tw.name like concat('%',#{warehouseDO.name},'%')
+    </if>
+    <if test="warehouseDO.number != null and warehouseDO.number != ''">
+      and tw.number like concat('%',#{warehouseDO.number},'%')
+    </if>
+
+  </select>
+
+  <select id="selectByOrgId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from nros_warehouse tw
+    where tw.org_id =  #{orgId,jdbcType=BIGINT}
+  </select>
+
+  <update id="updateByOrgIdSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+    update nros_warehouse
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        contact = #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="enable != null">
+        enable = #{enable,jdbcType=CHAR},
+      </if>
+      <if test="extensionNumber != null">
+        extension_number = #{extensionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="storeName != null">
+        store_name = #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="zipCode != null">
+        zip_code = #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFlag != null">
+        share_flag = #{shareFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where org_id = #{orgId,jdbcType=BIGINT};
+  </update>
+</mapper>

@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ztesoft.zsmart.nros.sbc</groupId>
+        <artifactId>nros-user</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>com.ztesoft.zsmart.nros.sbc.nrosuser</groupId>
+    <artifactId>nrosuser-server</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <jdk.compiler.level>1.8</jdk.compiler.level>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ztesoft.zsmart.nros.sbc.nrosuser</groupId>
+            <artifactId>nrosuser-client</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ztesoft.zsmart.nros</groupId>
+            <artifactId>nros-base</artifactId>
+            <version>${nros.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jodd/jodd-bean -->
+        <dependency>
+            <groupId>org.jodd</groupId>
+            <artifactId>jodd-bean</artifactId>
+            <version>5.0.6</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- mybatis 自动生成 -->
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <!--<version>${mybatis-generator.version}</version>-->
+                    <version>1.3.2</version>
+                    <executions>
+                        <execution>
+                            <id>Generate MyBatis Artifacts</id>
+                            <goals>
+                                <goal>
+                                    generate
+                                </goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <!--配置文件的位置-->
+                        <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+                        <verbose>true</verbose>
+                        <overwrite>true</overwrite>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.haier.hairy</groupId>
+                            <artifactId>mybatis-generator-core</artifactId>
+                            <version>1.0.2-SNAPSHOT</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.postgresql</groupId>
+                            <artifactId>postgresql</artifactId>
+                            <version>42.2.5.jre7</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

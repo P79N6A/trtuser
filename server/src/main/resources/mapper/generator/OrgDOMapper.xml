@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.generator.OrgDOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+    <id column="org_id" jdbcType="BIGINT" property="orgId" />
+    <result column="parent_org_id" jdbcType="NUMERIC" property="parentOrgId" />
+    <result column="org_name" jdbcType="VARCHAR" property="orgName" />
+    <result column="org_type" jdbcType="CHAR" property="orgType" />
+    <result column="area_id" jdbcType="NUMERIC" property="areaId" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="state_date" jdbcType="TIMESTAMP" property="stateDate" />
+    <result column="org_code" jdbcType="VARCHAR" property="orgCode" />
+    <result column="ext_str_01" jdbcType="VARCHAR" property="extStr01" />
+    <result column="ext_str_02" jdbcType="VARCHAR" property="extStr02" />
+    <result column="ext_str_03" jdbcType="VARCHAR" property="extStr03" />
+    <result column="ext_str_04" jdbcType="VARCHAR" property="extStr04" />
+    <result column="ext_str_05" jdbcType="VARCHAR" property="extStr05" />
+    <result column="ext_str_06" jdbcType="VARCHAR" property="extStr06" />
+    <result column="ext_str_07" jdbcType="VARCHAR" property="extStr07" />
+    <result column="ext_str_08" jdbcType="VARCHAR" property="extStr08" />
+    <result column="ext_str_09" jdbcType="VARCHAR" property="extStr09" />
+    <result column="ext_str_10" jdbcType="VARCHAR" property="extStr10" />
+    <result column="ext_str_11" jdbcType="VARCHAR" property="extStr11" />
+    <result column="ext_str_12" jdbcType="VARCHAR" property="extStr12" />
+    <result column="ext_num_01" jdbcType="NUMERIC" property="extNum01" />
+    <result column="ext_num_02" jdbcType="NUMERIC" property="extNum02" />
+    <result column="ext_dat_01" jdbcType="TIMESTAMP" property="extDat01" />
+    <result column="ext_dat_02" jdbcType="TIMESTAMP" property="extDat02" />
+    <result column="sp_id" jdbcType="NUMERIC" property="spId" />
+    <result column="leader" jdbcType="NUMERIC" property="leader" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    org_id, parent_org_id, org_name, org_type, area_id, state, state_date, org_code, 
+    ext_str_01, ext_str_02, ext_str_03, ext_str_04, ext_str_05, ext_str_06, ext_str_07, 
+    ext_str_08, ext_str_09, ext_str_10, ext_str_11, ext_str_12, ext_num_01, ext_num_02, 
+    ext_dat_01, ext_dat_02, sp_id, leader
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bfm_org
+    where org_id = #{orgId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bfm_org
+    where org_id = #{orgId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+    <selectKey keyProperty="orgId" order="BEFORE" resultType="java.lang.Long">
+      select nextval('t_bfm_org_id_seq')
+    </selectKey>
+    insert into bfm_org (org_id, parent_org_id, org_name, 
+      org_type, area_id, state, state_date, 
+      org_code, ext_str_01, ext_str_02, 
+      ext_str_03, ext_str_04, ext_str_05, 
+      ext_str_06, ext_str_07, ext_str_08, 
+      ext_str_09, ext_str_10, ext_str_11, 
+      ext_str_12, ext_num_01, ext_num_02, 
+      ext_dat_01, ext_dat_02, sp_id, 
+      leader)
+    values (#{orgId,jdbcType=BIGINT}, #{parentOrgId,jdbcType=NUMERIC}, #{orgName,jdbcType=VARCHAR}, 
+      #{orgType,jdbcType=CHAR}, #{areaId,jdbcType=NUMERIC}, #{state,jdbcType=CHAR}, #{stateDate,jdbcType=TIMESTAMP}, 
+      #{orgCode,jdbcType=VARCHAR}, #{extStr01,jdbcType=VARCHAR}, #{extStr02,jdbcType=VARCHAR}, 
+      #{extStr03,jdbcType=VARCHAR}, #{extStr04,jdbcType=VARCHAR}, #{extStr05,jdbcType=VARCHAR}, 
+      #{extStr06,jdbcType=VARCHAR}, #{extStr07,jdbcType=VARCHAR}, #{extStr08,jdbcType=VARCHAR}, 
+      #{extStr09,jdbcType=VARCHAR}, #{extStr10,jdbcType=VARCHAR}, #{extStr11,jdbcType=VARCHAR}, 
+      #{extStr12,jdbcType=VARCHAR}, #{extNum01,jdbcType=NUMERIC}, #{extNum02,jdbcType=NUMERIC}, 
+      #{extDat01,jdbcType=TIMESTAMP}, #{extDat02,jdbcType=TIMESTAMP}, #{spId,jdbcType=NUMERIC}, 
+      #{leader,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+    <selectKey keyProperty="orgId" order="BEFORE" resultType="java.lang.Long">
+      select nextval('t_bfm_org_id_seq')
+    </selectKey>
+    insert into bfm_org
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      org_id,
+      <if test="parentOrgId != null">
+        parent_org_id,
+      </if>
+      <if test="orgName != null">
+        org_name,
+      </if>
+      <if test="orgType != null">
+        org_type,
+      </if>
+      <if test="areaId != null">
+        area_id,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="stateDate != null">
+        state_date,
+      </if>
+      <if test="orgCode != null">
+        org_code,
+      </if>
+      <if test="extStr01 != null">
+        ext_str_01,
+      </if>
+      <if test="extStr02 != null">
+        ext_str_02,
+      </if>
+      <if test="extStr03 != null">
+        ext_str_03,
+      </if>
+      <if test="extStr04 != null">
+        ext_str_04,
+      </if>
+      <if test="extStr05 != null">
+        ext_str_05,
+      </if>
+      <if test="extStr06 != null">
+        ext_str_06,
+      </if>
+      <if test="extStr07 != null">
+        ext_str_07,
+      </if>
+      <if test="extStr08 != null">
+        ext_str_08,
+      </if>
+      <if test="extStr09 != null">
+        ext_str_09,
+      </if>
+      <if test="extStr10 != null">
+        ext_str_10,
+      </if>
+      <if test="extStr11 != null">
+        ext_str_11,
+      </if>
+      <if test="extStr12 != null">
+        ext_str_12,
+      </if>
+      <if test="extNum01 != null">
+        ext_num_01,
+      </if>
+      <if test="extNum02 != null">
+        ext_num_02,
+      </if>
+      <if test="extDat01 != null">
+        ext_dat_01,
+      </if>
+      <if test="extDat02 != null">
+        ext_dat_02,
+      </if>
+      <if test="spId != null">
+        sp_id,
+      </if>
+      <if test="leader != null">
+        leader,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{orgId,jdbcType=BIGINT},
+      <if test="parentOrgId != null">
+        #{parentOrgId,jdbcType=NUMERIC},
+      </if>
+      <if test="orgName != null">
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null">
+        #{orgType,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=NUMERIC},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="stateDate != null">
+        #{stateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgCode != null">
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr01 != null">
+        #{extStr01,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr02 != null">
+        #{extStr02,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr03 != null">
+        #{extStr03,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr04 != null">
+        #{extStr04,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr05 != null">
+        #{extStr05,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr06 != null">
+        #{extStr06,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr07 != null">
+        #{extStr07,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr08 != null">
+        #{extStr08,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr09 != null">
+        #{extStr09,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr10 != null">
+        #{extStr10,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr11 != null">
+        #{extStr11,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr12 != null">
+        #{extStr12,jdbcType=VARCHAR},
+      </if>
+      <if test="extNum01 != null">
+        #{extNum01,jdbcType=NUMERIC},
+      </if>
+      <if test="extNum02 != null">
+        #{extNum02,jdbcType=NUMERIC},
+      </if>
+      <if test="extDat01 != null">
+        #{extDat01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extDat02 != null">
+        #{extDat02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spId != null">
+        #{spId,jdbcType=NUMERIC},
+      </if>
+      <if test="leader != null">
+        #{leader,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+    update bfm_org
+    <set>
+      <if test="parentOrgId != null">
+        parent_org_id = #{parentOrgId,jdbcType=NUMERIC},
+      </if>
+      <if test="orgName != null">
+        org_name = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null">
+        org_type = #{orgType,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null">
+        area_id = #{areaId,jdbcType=NUMERIC},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="stateDate != null">
+        state_date = #{stateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgCode != null">
+        org_code = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr01 != null">
+        ext_str_01 = #{extStr01,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr02 != null">
+        ext_str_02 = #{extStr02,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr03 != null">
+        ext_str_03 = #{extStr03,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr04 != null">
+        ext_str_04 = #{extStr04,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr05 != null">
+        ext_str_05 = #{extStr05,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr06 != null">
+        ext_str_06 = #{extStr06,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr07 != null">
+        ext_str_07 = #{extStr07,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr08 != null">
+        ext_str_08 = #{extStr08,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr09 != null">
+        ext_str_09 = #{extStr09,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr10 != null">
+        ext_str_10 = #{extStr10,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr11 != null">
+        ext_str_11 = #{extStr11,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr12 != null">
+        ext_str_12 = #{extStr12,jdbcType=VARCHAR},
+      </if>
+      <if test="extNum01 != null">
+        ext_num_01 = #{extNum01,jdbcType=NUMERIC},
+      </if>
+      <if test="extNum02 != null">
+        ext_num_02 = #{extNum02,jdbcType=NUMERIC},
+      </if>
+      <if test="extDat01 != null">
+        ext_dat_01 = #{extDat01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extDat02 != null">
+        ext_dat_02 = #{extDat02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spId != null">
+        sp_id = #{spId,jdbcType=NUMERIC},
+      </if>
+      <if test="leader != null">
+        leader = #{leader,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where org_id = #{orgId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+    update bfm_org
+    set parent_org_id = #{parentOrgId,jdbcType=NUMERIC},
+      org_name = #{orgName,jdbcType=VARCHAR},
+      org_type = #{orgType,jdbcType=CHAR},
+      area_id = #{areaId,jdbcType=NUMERIC},
+      state = #{state,jdbcType=CHAR},
+      state_date = #{stateDate,jdbcType=TIMESTAMP},
+      org_code = #{orgCode,jdbcType=VARCHAR},
+      ext_str_01 = #{extStr01,jdbcType=VARCHAR},
+      ext_str_02 = #{extStr02,jdbcType=VARCHAR},
+      ext_str_03 = #{extStr03,jdbcType=VARCHAR},
+      ext_str_04 = #{extStr04,jdbcType=VARCHAR},
+      ext_str_05 = #{extStr05,jdbcType=VARCHAR},
+      ext_str_06 = #{extStr06,jdbcType=VARCHAR},
+      ext_str_07 = #{extStr07,jdbcType=VARCHAR},
+      ext_str_08 = #{extStr08,jdbcType=VARCHAR},
+      ext_str_09 = #{extStr09,jdbcType=VARCHAR},
+      ext_str_10 = #{extStr10,jdbcType=VARCHAR},
+      ext_str_11 = #{extStr11,jdbcType=VARCHAR},
+      ext_str_12 = #{extStr12,jdbcType=VARCHAR},
+      ext_num_01 = #{extNum01,jdbcType=NUMERIC},
+      ext_num_02 = #{extNum02,jdbcType=NUMERIC},
+      ext_dat_01 = #{extDat01,jdbcType=TIMESTAMP},
+      ext_dat_02 = #{extDat02,jdbcType=TIMESTAMP},
+      sp_id = #{spId,jdbcType=NUMERIC},
+      leader = #{leader,jdbcType=NUMERIC}
+    where org_id = #{orgId,jdbcType=BIGINT}
+  </update>
+</mapper>

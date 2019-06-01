@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.StaffMapper">
+    <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.StaffDetail">
+        <id column="staff_id" jdbcType="BIGINT" property="staffId"/>
+        <result column="staff_name" jdbcType="VARCHAR" property="staffName"/>
+        <result column="staff_code" jdbcType="VARCHAR" property="staffCode"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="created_date" jdbcType="TIMESTAMP" property="createdDate"/>
+        <result column="state" jdbcType="CHAR" property="state"/>
+        <result column="state_date" jdbcType="TIMESTAMP" property="stateDate"/>
+        <result column="user_id" jdbcType="NUMERIC" property="userId"/>
+        <result column="ext_str_01" jdbcType="VARCHAR" property="extStr01"/>
+        <result column="ext_str_02" jdbcType="VARCHAR" property="extStr02"/>
+        <result column="ext_str_03" jdbcType="VARCHAR" property="extStr03"/>
+        <result column="ext_str_04" jdbcType="VARCHAR" property="extStr04"/>
+        <result column="ext_str_05" jdbcType="VARCHAR" property="extStr05"/>
+        <result column="ext_str_06" jdbcType="VARCHAR" property="extStr06"/>
+        <result column="ext_str_07" jdbcType="VARCHAR" property="extStr07"/>
+        <result column="ext_str_08" jdbcType="VARCHAR" property="extStr08"/>
+        <result column="ext_str_09" jdbcType="VARCHAR" property="extStr09"/>
+        <result column="ext_str_10" jdbcType="VARCHAR" property="extStr10"/>
+        <result column="ext_str_11" jdbcType="VARCHAR" property="extStr11"/>
+        <result column="ext_str_12" jdbcType="VARCHAR" property="extStr12"/>
+        <result column="ext_num_01" jdbcType="NUMERIC" property="extNum01"/>
+        <result column="ext_num_02" jdbcType="NUMERIC" property="extNum02"/>
+        <result column="ext_dat_01" jdbcType="TIMESTAMP" property="extDat01"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="ext_dat_02" jdbcType="TIMESTAMP" property="extDat02"/>
+        <result column="org_name" jdbcType="VARCHAR" property="orgName"/>
+        <result column="org_id" jdbcType="BIGINT" property="orgId"/>
+        <result column="job_name" jdbcType="VARCHAR" property="jobName"/>
+        <result column="job_id" jdbcType="BIGINT" property="jobId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    staff_id, staff_name, staff_code, email, phone, address, created_date, state, state_date, 
+    user_id, ext_str_01, ext_str_02, ext_str_03, ext_str_04, ext_str_05, ext_str_06, 
+    ext_str_07, ext_str_08, ext_str_09, ext_str_10, ext_str_11, ext_str_12, ext_num_01, 
+    ext_num_02, ext_dat_01, update_date, ext_dat_02
+  </sql>
+    <sql id="Base_Column_List_Alias">
+        bs.staff_id,bs.staff_name,bs.staff_code,bs.email,bs.phone,bs.address,bs.created_date,
+        bs.state,bs.state_date,bs.user_id,bs.ext_str_01,bs.ext_str_02,bs.ext_str_03,
+        bs.ext_str_04,bs.ext_str_05,bs.ext_str_06,bs.ext_str_07,bs.ext_str_08,
+        bs.ext_str_09,bs.ext_str_10,bs.ext_str_11,bs.ext_str_12,bs.ext_num_01,bs.ext_num_02,
+        bs.ext_dat_01,bs.update_date,bs.ext_dat_02,bo.org_name, bo.org_id, bj.job_name, bj.job_id
+    </sql>
+    <select id="selectStaffList"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from bfm_staff bs
+        where 1=1
+        <if test="staffDetail.staffName != null and staffDetail.staffName != ''">
+            and bs.staff_name like concat('%',#{staffDetail.staffName},'%')
+        </if>
+        <if test="staffDetail.phone != null and staffDetail.phone != ''">
+            and bs.phone like concat(#{staffDetail.phone},'%')
+        </if>
+        <if test="staffDetail.email != null and staffDetail.email != ''">
+            and bs.email like concat(#{staffDetail.email},'%')
+        </if>
+        <if test="staffDetail.state != null and staffDetail.state != '' ">
+            and bs.state = #{staffDetail.state}
+        </if>
+        <if test="staffDetail.orgIds != null and staffDetail.orgIds.size >0 ">
+            and bs.staff_id in
+              (select bso.staff_id
+              from bfm_staff_org bso where bso.state = 'A' and bso.org_id in
+            <foreach collection="staffDetail.orgIds" index="index" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+            )
+        </if>
+
+    </select>
+
+    <select id="selectStaffDetailList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List_Alias"/>
+        from
+        (
+        select
+        <include refid="Base_Column_List"/>
+        from bfm_staff bs
+        where 1=1
+        <if test="staffDO.staffName != null and staffDO.staffName != ''">
+            and bs.staff_name like concat('%',#{staffDO.staffName},'%')
+        </if>
+        <if test="staffDO.phone != null and staffDO.phone != ''">
+            and bs.phone like concat('%',#{staffDO.phone},'%')
+        </if>
+        <if test="staffDO.state != null and staffDO.state != '' ">
+            and bs.state = #{staffDO.state}
+        </if>
+        ) bs
+        LEFT JOIN bfm_staff_org bso on bs.staff_id = bso.staff_id and bso.state = 'A'
+        LEFT JOIN bfm_org bo on bo.org_id=bso.org_id and bo.state = 'A'
+        LEFT JOIN bfm_org_job boj on boj.org_id = bo.org_id and boj.state = 'A'
+        LEFT JOIN bfm_job bj on boj.job_id = bj.job_id and bj.state = 'A'
+    </select>
+
+    <select id="selectStaffDetail" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List_Alias"/>
+        from
+        (
+        select
+        <include refid="Base_Column_List"/>
+        from bfm_staff bs
+        where bs.staff_id = #{id}
+        ) bs
+        LEFT JOIN bfm_staff_org bso on bs.staff_id = bso.staff_id and bso.state = 'A'
+        LEFT JOIN bfm_org bo on bo.org_id=bso.org_id and bo.state = 'A'
+        LEFT JOIN bfm_org_job boj on boj.org_id = bo.org_id and boj.state = 'A'
+        LEFT JOIN bfm_job bj on boj.job_id = bj.job_id and bj.state = 'A'
+    </select>
+
+</mapper>

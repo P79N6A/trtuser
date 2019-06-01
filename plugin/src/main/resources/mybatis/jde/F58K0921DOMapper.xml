@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.mapper.F58K0921DOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K0921DO">
+    <id column="m1edoc" jdbcType="NUMERIC" property="m1edoc" />
+    <id column="m1edct" jdbcType="CHAR" property="m1edct" />
+    <id column="m1ekco" jdbcType="CHAR" property="m1ekco" />
+    <result column="m1edty" jdbcType="CHAR" property="m1edty" />
+    <result column="m1edsq" jdbcType="NUMERIC" property="m1edsq" />
+    <result column="m1edln" jdbcType="NUMERIC" property="m1edln" />
+    <result column="m1edst" jdbcType="CHAR" property="m1edst" />
+    <result column="m1edft" jdbcType="CHAR" property="m1edft" />
+    <result column="m1eddt" jdbcType="DATE" property="m1eddt" />
+    <result column="m1eder" jdbcType="CHAR" property="m1eder" />
+    <result column="m1eddl" jdbcType="NUMERIC" property="m1eddl" />
+    <result column="m1edsp" jdbcType="CHAR" property="m1edsp" />
+    <result column="m1edbt" jdbcType="CHAR" property="m1edbt" />
+    <result column="m1pnid" jdbcType="CHAR" property="m1pnid" />
+    <result column="m1thcd" jdbcType="CHAR" property="m1thcd" />
+    <result column="m1an8" jdbcType="NUMERIC" property="m1an8" />
+    <result column="m1dtfr" jdbcType="NUMERIC" property="m1dtfr" />
+    <result column="m1dtto" jdbcType="NUMERIC" property="m1dtto" />
+    <result column="m1vr01" jdbcType="CHAR" property="m1vr01" />
+    <result column="m1urcd" jdbcType="CHAR" property="m1urcd" />
+    <result column="m1urdt" jdbcType="NUMERIC" property="m1urdt" />
+    <result column="m1urat" jdbcType="NUMERIC" property="m1urat" />
+    <result column="m1urab" jdbcType="NUMERIC" property="m1urab" />
+    <result column="m1urrf" jdbcType="CHAR" property="m1urrf" />
+    <result column="m1torg" jdbcType="CHAR" property="m1torg" />
+    <result column="m1user" jdbcType="CHAR" property="m1user" />
+    <result column="m1pid" jdbcType="CHAR" property="m1pid" />
+    <result column="m1jobn" jdbcType="CHAR" property="m1jobn" />
+    <result column="m1upmj" jdbcType="DATE" property="m1upmj" />
+    <result column="m1tday" jdbcType="VARCHAR" property="m1tday" />
+    <result column="m1gan8" jdbcType="NUMERIC" property="m1gan8" />
+    <result column="m1flag" jdbcType="CHAR" property="m1flag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    m1edoc, m1edct, m1ekco, m1edty, m1edsq, m1edln, m1edst, m1edft, m1eddt, m1eder, m1eddl, 
+    m1edsp, m1edbt, m1pnid, m1thcd, m1an8, m1dtfr, m1dtto, m1vr01, m1urcd, m1urdt, m1urat, 
+    m1urab, m1urrf, m1torg, m1user, m1pid, m1jobn, m1upmj, m1tday, m1gan8, m1flag
+  </sql>
+
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K0921DO">
+    insert into f58k0921 (
+    <include refid="Base_Column_List"/>
+    )
+    values (#{m1edoc,jdbcType=NUMERIC}, #{m1edct,jdbcType=CHAR}, #{m1ekco,jdbcType=CHAR}, 
+      #{m1edty,jdbcType=CHAR}, #{m1edsq,jdbcType=NUMERIC}, #{m1edln,jdbcType=NUMERIC}, 
+      #{m1edst,jdbcType=CHAR}, #{m1edft,jdbcType=CHAR}, #{m1eddt,jdbcType=DATE}, #{m1eder,jdbcType=CHAR}, 
+      #{m1eddl,jdbcType=NUMERIC}, #{m1edsp,jdbcType=CHAR}, #{m1edbt,jdbcType=CHAR}, #{m1pnid,jdbcType=CHAR}, 
+      #{m1thcd,jdbcType=CHAR}, #{m1an8,jdbcType=NUMERIC}, #{m1dtfr,jdbcType=NUMERIC}, 
+      #{m1dtto,jdbcType=NUMERIC}, #{m1vr01,jdbcType=CHAR}, #{m1urcd,jdbcType=CHAR}, #{m1urdt,jdbcType=NUMERIC}, 
+      #{m1urat,jdbcType=NUMERIC}, #{m1urab,jdbcType=NUMERIC}, #{m1urrf,jdbcType=CHAR}, 
+      #{m1torg,jdbcType=CHAR}, #{m1user,jdbcType=CHAR}, #{m1pid,jdbcType=CHAR}, #{m1jobn,jdbcType=CHAR}, 
+      #{m1upmj,jdbcType=DATE}, #{m1tday,jdbcType=VARCHAR}, #{m1gan8,jdbcType=NUMERIC}, 
+      #{m1flag,jdbcType=CHAR})
+  </insert>
+
+  <select id="select"
+          parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K0921DO"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from f58k0921
+    where 1=1
+    <!--<if test="channelId != null">
+      and channel_id = #{channelId}
+    </if>-->
+  </select>
+
+</mapper>

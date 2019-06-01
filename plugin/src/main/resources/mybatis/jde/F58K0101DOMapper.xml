@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.mapper.F58K0101DOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K0101DO">
+    <id column="mkan8" jdbcType="INTEGER" property="mkan8" />
+    <result column="mkalph" jdbcType="VARCHAR" property="mkalph" />
+    <result column="mkat1" jdbcType="VARCHAR" property="mkat1" />
+    <result column="mkmcu" jdbcType="VARCHAR" property="mkmcu" />
+    <result column="mkmlnm" jdbcType="VARCHAR" property="mkmlnm" />
+    <result column="mkadd1" jdbcType="VARCHAR" property="mkadd1" />
+    <result column="mkadd2" jdbcType="VARCHAR" property="mkadd2" />
+    <result column="mkadd3" jdbcType="VARCHAR" property="mkadd3" />
+    <result column="mkadd4" jdbcType="VARCHAR" property="mkadd4" />
+    <result column="mkcty1" jdbcType="VARCHAR" property="mkcty1" />
+    <result column="mkadds" jdbcType="VARCHAR" property="mkadds" />
+    <result column="mkaddz" jdbcType="VARCHAR" property="mkaddz" />
+    <result column="mkctr" jdbcType="VARCHAR" property="mkctr" />
+    <result column="mkcoun" jdbcType="VARCHAR" property="mkcoun" />
+    <result column="mkyearstar" jdbcType="VARCHAR" property="mkyearstar" />
+    <result column="mkrevrng" jdbcType="VARCHAR" property="mkrevrng" />
+    <result column="mkdsc1" jdbcType="VARCHAR" property="mkdsc1" />
+    <result column="mkgrowthr" jdbcType="VARCHAR" property="mkgrowthr" />
+    <result column="mkpa8" jdbcType="VARCHAR" property="mkpa8" />
+    <result column="mkan84" jdbcType="VARCHAR" property="mkan84" />
+    <result column="mkan86" jdbcType="VARCHAR" property="mkan86" />
+    <result column="mkac01" jdbcType="VARCHAR" property="mkac01" />
+    <result column="mkdl01" jdbcType="VARCHAR" property="mkdl01" />
+    <result column="mkac02" jdbcType="VARCHAR" property="mkac02" />
+    <result column="mkdl02" jdbcType="VARCHAR" property="mkdl02" />
+    <result column="mkac03" jdbcType="VARCHAR" property="mkac03" />
+    <result column="mkdl03" jdbcType="VARCHAR" property="mkdl03" />
+    <result column="mkac04" jdbcType="VARCHAR" property="mkac04" />
+    <result column="mkdl04" jdbcType="VARCHAR" property="mkdl04" />
+    <result column="mkac05" jdbcType="VARCHAR" property="mkac05" />
+    <result column="mkdl05" jdbcType="VARCHAR" property="mkdl05" />
+    <result column="mkac06" jdbcType="VARCHAR" property="mkac06" />
+    <result column="mkdl06" jdbcType="VARCHAR" property="mkdl06" />
+    <result column="mkac07" jdbcType="VARCHAR" property="mkac07" />
+    <result column="mkdl07" jdbcType="VARCHAR" property="mkdl07" />
+    <result column="mkac08" jdbcType="VARCHAR" property="mkac08" />
+    <result column="mkdl08" jdbcType="VARCHAR" property="mkdl08" />
+    <result column="mkuser" jdbcType="VARCHAR" property="mkuser" />
+    <result column="mkpid" jdbcType="VARCHAR" property="mkpid" />
+    <result column="mkjobn" jdbcType="VARCHAR" property="mkjobn" />
+    <result column="mkupmj" jdbcType="DATE" property="mkupmj" />
+    <result column="mkupmt" jdbcType="VARCHAR" property="mkupmt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    mkan8, mkalph, mkat1, mkmcu, mkmlnm, mkadd1, mkadd2, mkadd3, mkadd4, mkcty1, mkadds, 
+    mkaddz, mkctr, mkcoun, mkyearstar, mkrevrng, mkdsc1, mkgrowthr, mkpa8, mkan84, mkan86, 
+    mkac01, mkdl01, mkac02, mkdl02, mkac03, mkdl03, mkac04, mkdl04, mkac05, mkdl05, mkac06, 
+    mkdl06, mkac07, mkdl07, mkac08, mkdl08, mkuser, mkpid, mkjobn, mkupmj, mkupmt
+  </sql>
+
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K0101DO">
+    insert into f58k0101 (
+    <include refid="Base_Column_List"/>
+      )
+    values (#{mkan8,jdbcType=INTEGER}, #{mkalph,jdbcType=VARCHAR}, #{mkat1,jdbcType=VARCHAR}, 
+      #{mkmcu,jdbcType=VARCHAR}, #{mkmlnm,jdbcType=VARCHAR}, #{mkadd1,jdbcType=VARCHAR}, 
+      #{mkadd2,jdbcType=VARCHAR}, #{mkadd3,jdbcType=VARCHAR}, #{mkadd4,jdbcType=VARCHAR}, 
+      #{mkcty1,jdbcType=VARCHAR}, #{mkadds,jdbcType=VARCHAR}, #{mkaddz,jdbcType=VARCHAR}, 
+      #{mkctr,jdbcType=VARCHAR}, #{mkcoun,jdbcType=VARCHAR}, #{mkyearstar,jdbcType=VARCHAR}, 
+      #{mkrevrng,jdbcType=VARCHAR}, #{mkdsc1,jdbcType=VARCHAR}, #{mkgrowthr,jdbcType=VARCHAR}, 
+      #{mkpa8,jdbcType=VARCHAR}, #{mkan84,jdbcType=VARCHAR}, #{mkan86,jdbcType=VARCHAR}, 
+      #{mkac01,jdbcType=VARCHAR}, #{mkdl01,jdbcType=VARCHAR}, #{mkac02,jdbcType=VARCHAR}, 
+      #{mkdl02,jdbcType=VARCHAR}, #{mkac03,jdbcType=VARCHAR}, #{mkdl03,jdbcType=VARCHAR}, 
+      #{mkac04,jdbcType=VARCHAR}, #{mkdl04,jdbcType=VARCHAR}, #{mkac05,jdbcType=VARCHAR}, 
+      #{mkdl05,jdbcType=VARCHAR}, #{mkac06,jdbcType=VARCHAR}, #{mkdl06,jdbcType=VARCHAR}, 
+      #{mkac07,jdbcType=VARCHAR}, #{mkdl07,jdbcType=VARCHAR}, #{mkac08,jdbcType=VARCHAR}, 
+      #{mkdl08,jdbcType=VARCHAR}, #{mkuser,jdbcType=VARCHAR}, #{mkpid,jdbcType=VARCHAR}, 
+      #{mkjobn,jdbcType=VARCHAR}, #{mkupmj,jdbcType=DATE}, #{mkupmt,jdbcType=VARCHAR}
+      )
+  </insert>
+
+  <select id="select"
+          parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58K0101DO"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from f58k0101
+    where 1=1
+    <!--<if test="channelId != null">
+      and channel_id = #{channelId}
+    </if>-->
+  </select>
+
+</mapper>

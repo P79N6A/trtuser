@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.generator.StaffDOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StaffDO">
+    <id column="staff_id" jdbcType="BIGINT" property="staffId" />
+    <result column="staff_name" jdbcType="VARCHAR" property="staffName" />
+    <result column="staff_code" jdbcType="VARCHAR" property="staffCode" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="state_date" jdbcType="TIMESTAMP" property="stateDate" />
+    <result column="user_id" jdbcType="NUMERIC" property="userId" />
+    <result column="ext_str_01" jdbcType="VARCHAR" property="extStr01" />
+    <result column="ext_str_02" jdbcType="VARCHAR" property="extStr02" />
+    <result column="ext_str_03" jdbcType="VARCHAR" property="extStr03" />
+    <result column="ext_str_04" jdbcType="VARCHAR" property="extStr04" />
+    <result column="ext_str_05" jdbcType="VARCHAR" property="extStr05" />
+    <result column="ext_str_06" jdbcType="VARCHAR" property="extStr06" />
+    <result column="ext_str_07" jdbcType="VARCHAR" property="extStr07" />
+    <result column="ext_str_08" jdbcType="VARCHAR" property="extStr08" />
+    <result column="ext_str_09" jdbcType="VARCHAR" property="extStr09" />
+    <result column="ext_str_10" jdbcType="VARCHAR" property="extStr10" />
+    <result column="ext_str_11" jdbcType="VARCHAR" property="extStr11" />
+    <result column="ext_str_12" jdbcType="VARCHAR" property="extStr12" />
+    <result column="ext_num_01" jdbcType="NUMERIC" property="extNum01" />
+    <result column="ext_num_02" jdbcType="NUMERIC" property="extNum02" />
+    <result column="ext_dat_01" jdbcType="TIMESTAMP" property="extDat01" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="ext_dat_02" jdbcType="TIMESTAMP" property="extDat02" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    staff_id, staff_name, staff_code, email, phone, address, created_date, state, state_date, 
+    user_id, ext_str_01, ext_str_02, ext_str_03, ext_str_04, ext_str_05, ext_str_06, 
+    ext_str_07, ext_str_08, ext_str_09, ext_str_10, ext_str_11, ext_str_12, ext_num_01, 
+    ext_num_02, ext_dat_01, update_date, ext_dat_02
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bfm_staff
+    where staff_id = #{staffId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bfm_staff
+    where staff_id = #{staffId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StaffDO">
+    <selectKey keyProperty="staffId" order="BEFORE" resultType="java.lang.Long">
+      select nextval('t_bfm_staff_id_seq')
+    </selectKey>
+    insert into bfm_staff (staff_id, staff_name, staff_code, 
+      email, phone, address, 
+      created_date, state, state_date, 
+      user_id, ext_str_01, ext_str_02, 
+      ext_str_03, ext_str_04, ext_str_05, 
+      ext_str_06, ext_str_07, ext_str_08, 
+      ext_str_09, ext_str_10, ext_str_11, 
+      ext_str_12, ext_num_01, ext_num_02, 
+      ext_dat_01, update_date, ext_dat_02
+      )
+    values (#{staffId,jdbcType=BIGINT}, #{staffName,jdbcType=VARCHAR}, #{staffCode,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{createdDate,jdbcType=TIMESTAMP}, #{state,jdbcType=CHAR}, #{stateDate,jdbcType=TIMESTAMP}, 
+      #{userId,jdbcType=NUMERIC}, #{extStr01,jdbcType=VARCHAR}, #{extStr02,jdbcType=VARCHAR}, 
+      #{extStr03,jdbcType=VARCHAR}, #{extStr04,jdbcType=VARCHAR}, #{extStr05,jdbcType=VARCHAR}, 
+      #{extStr06,jdbcType=VARCHAR}, #{extStr07,jdbcType=VARCHAR}, #{extStr08,jdbcType=VARCHAR}, 
+      #{extStr09,jdbcType=VARCHAR}, #{extStr10,jdbcType=VARCHAR}, #{extStr11,jdbcType=VARCHAR}, 
+      #{extStr12,jdbcType=VARCHAR}, #{extNum01,jdbcType=NUMERIC}, #{extNum02,jdbcType=NUMERIC}, 
+      #{extDat01,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{extDat02,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StaffDO">
+    <selectKey keyProperty="staffId" order="BEFORE" resultType="java.lang.Long">
+      select nextval('t_bfm_staff_id_seq')
+    </selectKey>
+    insert into bfm_staff
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      staff_id,
+      <if test="staffName != null">
+        staff_name,
+      </if>
+      <if test="staffCode != null">
+        staff_code,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="createdDate != null">
+        created_date,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="stateDate != null">
+        state_date,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="extStr01 != null">
+        ext_str_01,
+      </if>
+      <if test="extStr02 != null">
+        ext_str_02,
+      </if>
+      <if test="extStr03 != null">
+        ext_str_03,
+      </if>
+      <if test="extStr04 != null">
+        ext_str_04,
+      </if>
+      <if test="extStr05 != null">
+        ext_str_05,
+      </if>
+      <if test="extStr06 != null">
+        ext_str_06,
+      </if>
+      <if test="extStr07 != null">
+        ext_str_07,
+      </if>
+      <if test="extStr08 != null">
+        ext_str_08,
+      </if>
+      <if test="extStr09 != null">
+        ext_str_09,
+      </if>
+      <if test="extStr10 != null">
+        ext_str_10,
+      </if>
+      <if test="extStr11 != null">
+        ext_str_11,
+      </if>
+      <if test="extStr12 != null">
+        ext_str_12,
+      </if>
+      <if test="extNum01 != null">
+        ext_num_01,
+      </if>
+      <if test="extNum02 != null">
+        ext_num_02,
+      </if>
+      <if test="extDat01 != null">
+        ext_dat_01,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="extDat02 != null">
+        ext_dat_02,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{staffId,jdbcType=BIGINT},
+      <if test="staffName != null">
+        #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="staffCode != null">
+        #{staffCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="stateDate != null">
+        #{stateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=NUMERIC},
+      </if>
+      <if test="extStr01 != null">
+        #{extStr01,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr02 != null">
+        #{extStr02,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr03 != null">
+        #{extStr03,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr04 != null">
+        #{extStr04,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr05 != null">
+        #{extStr05,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr06 != null">
+        #{extStr06,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr07 != null">
+        #{extStr07,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr08 != null">
+        #{extStr08,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr09 != null">
+        #{extStr09,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr10 != null">
+        #{extStr10,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr11 != null">
+        #{extStr11,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr12 != null">
+        #{extStr12,jdbcType=VARCHAR},
+      </if>
+      <if test="extNum01 != null">
+        #{extNum01,jdbcType=NUMERIC},
+      </if>
+      <if test="extNum02 != null">
+        #{extNum02,jdbcType=NUMERIC},
+      </if>
+      <if test="extDat01 != null">
+        #{extDat01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extDat02 != null">
+        #{extDat02,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StaffDO">
+    update bfm_staff
+    <set>
+      <if test="staffName != null">
+        staff_name = #{staffName,jdbcType=VARCHAR},
+      </if>
+      <if test="staffCode != null">
+        staff_code = #{staffCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="stateDate != null">
+        state_date = #{stateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=NUMERIC},
+      </if>
+      <if test="extStr01 != null">
+        ext_str_01 = #{extStr01,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr02 != null">
+        ext_str_02 = #{extStr02,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr03 != null">
+        ext_str_03 = #{extStr03,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr04 != null">
+        ext_str_04 = #{extStr04,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr05 != null">
+        ext_str_05 = #{extStr05,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr06 != null">
+        ext_str_06 = #{extStr06,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr07 != null">
+        ext_str_07 = #{extStr07,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr08 != null">
+        ext_str_08 = #{extStr08,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr09 != null">
+        ext_str_09 = #{extStr09,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr10 != null">
+        ext_str_10 = #{extStr10,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr11 != null">
+        ext_str_11 = #{extStr11,jdbcType=VARCHAR},
+      </if>
+      <if test="extStr12 != null">
+        ext_str_12 = #{extStr12,jdbcType=VARCHAR},
+      </if>
+      <if test="extNum01 != null">
+        ext_num_01 = #{extNum01,jdbcType=NUMERIC},
+      </if>
+      <if test="extNum02 != null">
+        ext_num_02 = #{extNum02,jdbcType=NUMERIC},
+      </if>
+      <if test="extDat01 != null">
+        ext_dat_01 = #{extDat01,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extDat02 != null">
+        ext_dat_02 = #{extDat02,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where staff_id = #{staffId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StaffDO">
+    update bfm_staff
+    set staff_name = #{staffName,jdbcType=VARCHAR},
+      staff_code = #{staffCode,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=CHAR},
+      state_date = #{stateDate,jdbcType=TIMESTAMP},
+      user_id = #{userId,jdbcType=NUMERIC},
+      ext_str_01 = #{extStr01,jdbcType=VARCHAR},
+      ext_str_02 = #{extStr02,jdbcType=VARCHAR},
+      ext_str_03 = #{extStr03,jdbcType=VARCHAR},
+      ext_str_04 = #{extStr04,jdbcType=VARCHAR},
+      ext_str_05 = #{extStr05,jdbcType=VARCHAR},
+      ext_str_06 = #{extStr06,jdbcType=VARCHAR},
+      ext_str_07 = #{extStr07,jdbcType=VARCHAR},
+      ext_str_08 = #{extStr08,jdbcType=VARCHAR},
+      ext_str_09 = #{extStr09,jdbcType=VARCHAR},
+      ext_str_10 = #{extStr10,jdbcType=VARCHAR},
+      ext_str_11 = #{extStr11,jdbcType=VARCHAR},
+      ext_str_12 = #{extStr12,jdbcType=VARCHAR},
+      ext_num_01 = #{extNum01,jdbcType=NUMERIC},
+      ext_num_02 = #{extNum02,jdbcType=NUMERIC},
+      ext_dat_01 = #{extDat01,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      ext_dat_02 = #{extDat02,jdbcType=TIMESTAMP}
+    where staff_id = #{staffId,jdbcType=BIGINT}
+  </update>
+</mapper>

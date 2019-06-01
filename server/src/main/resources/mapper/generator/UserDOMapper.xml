@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.generator.UserDOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.UserDO">
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="user_code" jdbcType="VARCHAR" property="userCode" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="user_eff_date" jdbcType="TIMESTAMP" property="userEffDate" />
+    <result column="user_exp_date" jdbcType="TIMESTAMP" property="userExpDate" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="state_date" jdbcType="TIMESTAMP" property="stateDate" />
+    <result column="is_locked" jdbcType="CHAR" property="isLocked" />
+    <result column="pwd_exp_date" jdbcType="TIMESTAMP" property="pwdExpDate" />
+    <result column="login_fail" jdbcType="NUMERIC" property="loginFail" />
+    <result column="unlock_date" jdbcType="TIMESTAMP" property="unlockDate" />
+    <result column="portal_id" jdbcType="NUMERIC" property="portalId" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, user_name, email, phone, user_code, pwd, address, memo, user_eff_date, user_exp_date, 
+    created_date, state, state_date, is_locked, pwd_exp_date, login_fail, unlock_date, 
+    portal_id, update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bfm_user
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bfm_user
+    where user_id = #{userId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.UserDO">
+    <selectKey keyProperty="userId" order="BEFORE" resultType="java.lang.Long">
+      select nextval('t_bfm_user_id_seq')
+    </selectKey>
+    insert into bfm_user (user_id, user_name, email, 
+      phone, user_code, pwd, 
+      address, memo, user_eff_date, 
+      user_exp_date, created_date, state, 
+      state_date, is_locked, pwd_exp_date, 
+      login_fail, unlock_date, portal_id, 
+      update_date)
+    values (#{userId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{userCode,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{userEffDate,jdbcType=TIMESTAMP}, 
+      #{userExpDate,jdbcType=TIMESTAMP}, #{createdDate,jdbcType=TIMESTAMP}, #{state,jdbcType=CHAR}, 
+      #{stateDate,jdbcType=TIMESTAMP}, #{isLocked,jdbcType=CHAR}, #{pwdExpDate,jdbcType=TIMESTAMP}, 
+      #{loginFail,jdbcType=NUMERIC}, #{unlockDate,jdbcType=TIMESTAMP}, #{portalId,jdbcType=NUMERIC}, 
+      #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.UserDO">
+    <selectKey keyProperty="userId" order="BEFORE" resultType="java.lang.Long">
+      select nextval('t_bfm_user_id_seq')
+    </selectKey>
+    insert into bfm_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      user_id,
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="userCode != null">
+        user_code,
+      </if>
+      <if test="pwd != null">
+        pwd,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="userEffDate != null">
+        user_eff_date,
+      </if>
+      <if test="userExpDate != null">
+        user_exp_date,
+      </if>
+      <if test="createdDate != null">
+        created_date,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="stateDate != null">
+        state_date,
+      </if>
+      <if test="isLocked != null">
+        is_locked,
+      </if>
+      <if test="pwdExpDate != null">
+        pwd_exp_date,
+      </if>
+      <if test="loginFail != null">
+        login_fail,
+      </if>
+      <if test="unlockDate != null">
+        unlock_date,
+      </if>
+      <if test="portalId != null">
+        portal_id,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{userId,jdbcType=BIGINT},
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null">
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="userEffDate != null">
+        #{userEffDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userExpDate != null">
+        #{userExpDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="stateDate != null">
+        #{stateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isLocked != null">
+        #{isLocked,jdbcType=CHAR},
+      </if>
+      <if test="pwdExpDate != null">
+        #{pwdExpDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginFail != null">
+        #{loginFail,jdbcType=NUMERIC},
+      </if>
+      <if test="unlockDate != null">
+        #{unlockDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="portalId != null">
+        #{portalId,jdbcType=NUMERIC},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.UserDO">
+    update bfm_user
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null">
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null">
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="userEffDate != null">
+        user_eff_date = #{userEffDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userExpDate != null">
+        user_exp_date = #{userExpDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdDate != null">
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="stateDate != null">
+        state_date = #{stateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isLocked != null">
+        is_locked = #{isLocked,jdbcType=CHAR},
+      </if>
+      <if test="pwdExpDate != null">
+        pwd_exp_date = #{pwdExpDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginFail != null">
+        login_fail = #{loginFail,jdbcType=NUMERIC},
+      </if>
+      <if test="unlockDate != null">
+        unlock_date = #{unlockDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="portalId != null">
+        portal_id = #{portalId,jdbcType=NUMERIC},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.UserDO">
+    update bfm_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      user_code = #{userCode,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      user_eff_date = #{userEffDate,jdbcType=TIMESTAMP},
+      user_exp_date = #{userExpDate,jdbcType=TIMESTAMP},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=CHAR},
+      state_date = #{stateDate,jdbcType=TIMESTAMP},
+      is_locked = #{isLocked,jdbcType=CHAR},
+      pwd_exp_date = #{pwdExpDate,jdbcType=TIMESTAMP},
+      login_fail = #{loginFail,jdbcType=NUMERIC},
+      unlock_date = #{unlockDate,jdbcType=TIMESTAMP},
+      portal_id = #{portalId,jdbcType=NUMERIC},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+</mapper>

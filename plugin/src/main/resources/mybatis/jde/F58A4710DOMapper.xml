@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.mapper.F58A4710DOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58A4710DO">
+    <result column="CKKCOO" jdbcType="CHAR" property="ckkcoo" />
+    <result column="CKDOCO" jdbcType="NUMERIC" property="ckdoco" />
+    <result column="CKDCTO" jdbcType="CHAR" property="ckdcto" />
+    <result column="CKLNID" jdbcType="NUMERIC" property="cklnid" />
+    <result column="CKMMCU" jdbcType="CHAR" property="ckmmcu" />
+    <result column="CKMCU" jdbcType="CHAR" property="ckmcu" />
+    <result column="CKSHAN" jdbcType="NUMERIC" property="ckshan" />
+    <result column="CKVR01" jdbcType="CHAR" property="ckvr01" />
+    <result column="CKRKCO" jdbcType="CHAR" property="ckrkco" />
+    <result column="CKRORN" jdbcType="CHAR" property="ckrorn" />
+    <result column="CKRCTO" jdbcType="CHAR" property="ckrcto" />
+    <result column="CKRLLN" jdbcType="NUMERIC" property="ckrlln" />
+    <result column="CKLITM" jdbcType="CHAR" property="cklitm" />
+    <result column="CKUORG" jdbcType="NUMERIC" property="ckuorg" />
+    <result column="CKUOM1" jdbcType="CHAR" property="ckuom1" />
+    <result column="CKSOQS" jdbcType="NUMERIC" property="cksoqs" />
+    <result column="CKUOM6" jdbcType="CHAR" property="ckuom6" />
+    <result column="CKTRDJ" jdbcType="DATE" property="cktrdj" />
+    <result column="CKADDJ" jdbcType="DATE" property="ckaddj" />
+    <result column="CKE58DDRQ" jdbcType="CHAR" property="cke58ddrq" />
+    <result column="CKE58FYRQ" jdbcType="CHAR" property="cke58fyrq" />
+    <result column="CKLOCN" jdbcType="CHAR" property="cklocn" />
+    <result column="CKLOTN" jdbcType="CHAR" property="cklotn" />
+    <result column="CKU4DJ" jdbcType="DATE" property="cku4dj" />
+    <result column="CKMMEJ" jdbcType="DATE" property="ckmmej" />
+    <result column="CKURCD" jdbcType="CHAR" property="ckurcd" />
+    <result column="CKURDT" jdbcType="DATE" property="ckurdt" />
+    <result column="CKURAT" jdbcType="NUMERIC" property="ckurat" />
+    <result column="CKURAB" jdbcType="NUMERIC" property="ckurab" />
+    <result column="CKURRF" jdbcType="CHAR" property="ckurrf" />
+    <result column="CKEV01" jdbcType="CHAR" property="ckev01" />
+    <result column="CKEV02" jdbcType="CHAR" property="ckev02" />
+    <result column="CKEV03" jdbcType="CHAR" property="ckev03" />
+    <result column="CKUSER" jdbcType="CHAR" property="ckuser" />
+    <result column="CKPID" jdbcType="CHAR" property="ckpid" />
+    <result column="CKJOBN" jdbcType="CHAR" property="ckjobn" />
+    <result column="CKUPMJ" jdbcType="DATE" property="ckupmj" />
+    <result column="CKUPMT" jdbcType="TIME" property="ckupmt" />
+    <result column="CKUPRC" jdbcType="NUMERIC" property="ckuprc" />
+    <result column="CKAEXP" jdbcType="NUMERIC" property="ckaexp" />
+    <result column="CKAN8" jdbcType="NUMERIC" property="ckan8" />
+    <result column="CKINDATE" jdbcType="TIMESTAMP" property="ckindate" />
+    <result column="CKINRMK" jdbcType="CHAR" property="ckinrmk" />
+    <result column="CKREDATE" jdbcType="TIMESTAMP" property="ckredate" />
+    <result column="CKRERMK" jdbcType="CHAR" property="ckrermk" />
+    <result column="CKUKID" jdbcType="NUMERIC" property="ckukid" />
+    <result column="CKSTATUS" jdbcType="CHAR" property="ckstatus" />
+    <result column="CKFLAG" jdbcType="CHAR" property="ckflag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    "CKKCOO", "CKDOCO", "CKDCTO", "CKLNID", "CKMMCU", "CKMCU", "CKSHAN", "CKVR01", "CKRKCO",
+    "CKRORN", "CKRCTO", "CKRLLN", "CKLITM", "CKUORG", "CKUOM1", "CKSOQS", "CKUOM6", "CKTRDJ",
+    "CKADDJ", "CKE58DDRQ", "CKE58FYRQ", "CKLOCN", "CKLOTN", "CKU4DJ", "CKMMEJ", "CKURCD",
+    "CKURDT", "CKURAT", "CKURAB", "CKURRF", "CKEV01", "CKEV02", "CKEV03", "CKUSER", "CKPID",
+    "CKJOBN", "CKUPMJ", "CKUPMT", "CKUPRC", "CKAEXP", "CKAN8", "CKINDATE", "CKINRMK", "CKREDATE",
+    "CKRERMK", "CKUKID", "CKSTATUS", "CKFLAG"
+  </sql>
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58A4710DO">
+    insert into f58a4710 (
+    <include refid="Base_Column_List"/>
+    )
+    values (#{ckkcoo,jdbcType=CHAR}, #{ckdoco,jdbcType=NUMERIC}, #{ckdcto,jdbcType=CHAR}, 
+      #{cklnid,jdbcType=NUMERIC}, #{ckmmcu,jdbcType=CHAR}, #{ckmcu,jdbcType=CHAR}, #{ckshan,jdbcType=NUMERIC}, 
+      #{ckvr01,jdbcType=CHAR}, #{ckrkco,jdbcType=CHAR}, #{ckrorn,jdbcType=CHAR}, #{ckrcto,jdbcType=CHAR}, 
+      #{ckrlln,jdbcType=NUMERIC}, #{cklitm,jdbcType=CHAR}, #{ckuorg,jdbcType=NUMERIC}, 
+      #{ckuom1,jdbcType=CHAR}, #{cksoqs,jdbcType=NUMERIC}, #{ckuom6,jdbcType=CHAR}, #{cktrdj,jdbcType=DATE}, 
+      #{ckaddj,jdbcType=DATE}, #{cke58ddrq,jdbcType=CHAR}, #{cke58fyrq,jdbcType=CHAR}, 
+      #{cklocn,jdbcType=CHAR}, #{cklotn,jdbcType=CHAR}, #{cku4dj,jdbcType=DATE}, #{ckmmej,jdbcType=DATE}, 
+      #{ckurcd,jdbcType=CHAR}, #{ckurdt,jdbcType=DATE}, #{ckurat,jdbcType=NUMERIC}, #{ckurab,jdbcType=NUMERIC}, 
+      #{ckurrf,jdbcType=CHAR}, #{ckev01,jdbcType=CHAR}, #{ckev02,jdbcType=CHAR}, #{ckev03,jdbcType=CHAR}, 
+      #{ckuser,jdbcType=CHAR}, #{ckpid,jdbcType=CHAR}, #{ckjobn,jdbcType=CHAR}, #{ckupmj,jdbcType=DATE}, 
+      #{ckupmt,jdbcType=TIME}, #{ckuprc,jdbcType=NUMERIC}, #{ckaexp,jdbcType=NUMERIC}, 
+      #{ckan8,jdbcType=NUMERIC}, #{ckindate,jdbcType=TIMESTAMP}, #{ckinrmk,jdbcType=CHAR}, 
+      #{ckredate,jdbcType=TIMESTAMP}, #{ckrermk,jdbcType=CHAR}, #{ckukid,jdbcType=NUMERIC}, 
+      #{ckstatus,jdbcType=CHAR}, #{ckflag,jdbcType=CHAR})
+  </insert>
+  <select id="select"
+          parameterType="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model.F58A4106DO"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from f58a4710
+    where 1=1
+    <!--<if test="channelId != null">
+      and channel_id = #{channelId}
+    </if>-->
+  </select>
+</mapper>
