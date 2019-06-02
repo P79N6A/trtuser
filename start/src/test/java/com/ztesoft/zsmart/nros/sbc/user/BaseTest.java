@@ -8,7 +8,7 @@
  * <author>          <time>          <version>          <desc>
  * 作者姓名           修改时间           版本号              描述
  */
-package com.ztesoft.zsmart.nros.sbc.nrosuser;
+package com.ztesoft.zsmart.nros.sbc.user;
 
 import org.junit.After;
 import org.junit.Before;

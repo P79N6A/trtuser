@@ -1,6 +1,6 @@
 /**
  * [Product]
- *     nrosuser
+ *     user
  * [Copyright]
  *     Copyright © 2019 ZTESoft All Rights Reserved.
  * [FileName]
@@ -10,7 +10,7 @@
  *     -------- --------- ---------- ------------------------
  *     1.0.0    2019年3月27日   zhouyl5    最初版本
  */
-package com.ztesoft.zsmart.nros.sbc.nrosuser;
+package com.ztesoft.zsmart.nros.sbc.user;
 
 
 import org.slf4j.Logger;
@@ -24,7 +24,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 
-@SpringBootApplication(scanBasePackages = {"com.ztesoft.zsmart.nros.base", "com.ztesoft.zsmart.nros.sbc.nrosuser"})
+@SpringBootApplication(scanBasePackages = {"com.ztesoft.zsmart.nros.base", "com.ztesoft.zsmart.nros.sbc.user"})
 @EnableFeignClients
 @EnableDiscoveryClient
 public class NrosuserApplication extends SpringBootServletInitializer {

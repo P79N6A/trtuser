@@ -36,7 +36,7 @@ public interface UserDOMapper {
      * 根据主键获取一条数据库记录
      *
      * @param userId userId
-     * @return com.ztesoft.zsmart.nros.sbc.nrosuser.dao.model.generator.userDo
+     * @return com.ztesoft.zsmart.nros.sbc.user.dao.model.generator.userDo
      */
     UserDO selectByPrimaryKey(Long userId);
 

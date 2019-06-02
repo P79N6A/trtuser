@@ -1,4 +1,4 @@
-package com.ztesoft.zsmart.nros.sbc.nrosuser.controller.web;
+package com.ztesoft.zsmart.nros.sbc.user.controller.web;
 
 import com.github.pagehelper.PageInfo;
 import com.ztesoft.zsmart.nros.base.exception.BusiException;

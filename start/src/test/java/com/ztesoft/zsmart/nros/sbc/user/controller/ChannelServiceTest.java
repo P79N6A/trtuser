@@ -1,8 +1,8 @@
-package com.ztesoft.zsmart.nros.sbc.nrosuser.controller;
+package com.ztesoft.zsmart.nros.sbc.user.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.github.pagehelper.PageInfo;
-import com.ztesoft.zsmart.nros.sbc.nrosuser.BaseTest;
+import com.ztesoft.zsmart.nros.sbc.user.BaseTest;
 import com.ztesoft.zsmart.nros.sbc.user.client.api.ChannelService;
 import com.ztesoft.zsmart.nros.sbc.user.client.model.query.ChannelQuery;
 import org.junit.Test;

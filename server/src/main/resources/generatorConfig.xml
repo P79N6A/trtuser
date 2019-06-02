@@ -30,7 +30,7 @@
 
         <!--自动生成的实体的存放包路径 -->
         <javaModelGenerator
-                targetPackage="com.ztesoft.zsmart.nros.sbc.nrosuser.dao.model.generator"
+                targetPackage="com.ztesoft.zsmart.nros.sbc.user.dao.model.generator"
                 targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>

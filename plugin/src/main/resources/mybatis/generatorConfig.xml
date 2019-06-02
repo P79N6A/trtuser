@@ -30,7 +30,7 @@
 
         <!--自动生成的实体的存放包路径 -->
         <javaModelGenerator
-                targetPackage="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.model"
+                targetPackage="com.ztesoft.zsmart.nros.sbc.user.plugin.jde.dao.model"
                 targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
@@ -44,7 +44,7 @@
 
         <!--自动生成的*Mapper.java存放路径 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.ztesoft.zsmart.nros.sbc.nrosuser.plugin.jde.dao.mapper"
+                             targetPackage="com.ztesoft.zsmart.nros.sbc.user.plugin.jde.dao.mapper"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>

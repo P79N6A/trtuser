@@ -1,4 +1,4 @@
-package com.ztesoft.zsmart.nros.sbc.nrosuser.controller.web;
+package com.ztesoft.zsmart.nros.sbc.user.controller.web;
 
 import com.ztesoft.zsmart.nros.base.exception.BusiException;
 import com.ztesoft.zsmart.nros.base.model.ResponseMsg;

@@ -27,7 +27,7 @@
                 <configuration>
                     <fork>true</fork>
                     <executable>true</executable>
-                    <mainClass>com.ztesoft.zsmart.nros.sbc.nrosuser.NrosuserApplication</mainClass>
+                    <mainClass>com.ztesoft.zsmart.nros.sbc.user.NrosuserApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

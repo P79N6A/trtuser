@@ -1,6 +1,6 @@
-package com.ztesoft.zsmart.nros.sbc.nrosuser.staffuser;
+package com.ztesoft.zsmart.nros.sbc.user.staffuser;
 
-import com.ztesoft.zsmart.nros.sbc.nrosuser.BaseTest;
+import com.ztesoft.zsmart.nros.sbc.user.BaseTest;
 import com.ztesoft.zsmart.nros.sbc.user.client.api.UserOrgPrivService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
