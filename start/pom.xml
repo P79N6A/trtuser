@@ -18,11 +18,6 @@
             <artifactId>nrosuser-server</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.ztesoft.zsmart.pot</groupId>
-            <artifactId>stafforg-service-impl</artifactId>
-            <version>9.1.5(5)</version>
-        </dependency>
     </dependencies>
     <build>
         <plugins>

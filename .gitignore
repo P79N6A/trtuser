@@ -3,6 +3,7 @@
 /classes/
 /client/target/
 /server/target/
+/plugin/target/
 /server/nrositem-server.iml
 /client/nrositem-client.iml
 /nrositem.iml
