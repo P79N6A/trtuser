@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.generator.ChannelDOMapper">
-  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.ChannelDO">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.server.dao.mapper.generator.ChannelDOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.ChannelDO">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="org_id" jdbcType="BIGINT" property="orgId" />
     <result column="number" jdbcType="VARCHAR" property="number" />
@@ -33,7 +33,7 @@
     delete from nros_channel
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.ChannelDO">
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.ChannelDO">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
       select nextval('nros_channel_id_seq')
     </selectKey>
@@ -50,7 +50,7 @@
       #{creator,jdbcType=VARCHAR}, #{modifier,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.ChannelDO">
+  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.ChannelDO">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
       select nextval('nros_channel_id_seq')
     </selectKey>
@@ -152,7 +152,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.ChannelDO">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.ChannelDO">
     update nros_channel
     <set>
       <if test="orgId != null">
@@ -203,7 +203,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.ChannelDO">
+  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.ChannelDO">
     update nros_channel
     set org_id = #{orgId,jdbcType=BIGINT},
       number = #{number,jdbcType=VARCHAR},

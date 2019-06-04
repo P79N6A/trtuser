@@ -6,11 +6,11 @@
         <artifactId>nros-user</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.ztesoft.zsmart.nros.sbc.nrosuser</groupId>
-    <artifactId>nrosuser-client</artifactId>
+    <groupId>com.ztesoft.zsmart.nros.sbc</groupId>
+    <artifactId>nros-user-client</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>nrosuser-client</name>
+    <name>nros-user-client</name>
 
     <dependencies>
         <dependency>

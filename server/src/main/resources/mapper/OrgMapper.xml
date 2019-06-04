@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.OrgMapper">
-  <resultMap id="BaseOrgMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.server.dao.mapper.OrgMapper">
+  <resultMap id="BaseOrgMap" type="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.OrgDO">
     <id column="org_id" jdbcType="BIGINT" property="orgId" />
     <result column="parent_org_id" jdbcType="NUMERIC" property="parentOrgId" />
     <result column="org_name" jdbcType="VARCHAR" property="orgName" />
@@ -116,7 +116,7 @@
 	</select>
 
 
-  <select id="selectStaffOrg" resultType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.StaffOrg">
+  <select id="selectStaffOrg" resultType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.StaffOrg">
     SELECT DISTINCT A.ORG_ID ORGID,A.PARENT_ORG_ID PARENTORGID,A.ORG_NAME ORGNAME,A.STATE,A.ORG_TYPE ORGTYPE,B.STAFF_ORG_ID STAFFORGID,
     B.STAFF_ID STAFFID,B.IS_DEFAULT ISDEFAULT
     FROM BFM_ORG A,

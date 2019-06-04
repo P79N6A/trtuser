@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.generator.StaffDOMapper">
-  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StaffDO">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.server.dao.mapper.generator.StaffDOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.StaffDO">
     <id column="staff_id" jdbcType="BIGINT" property="staffId" />
     <result column="staff_name" jdbcType="VARCHAR" property="staffName" />
     <result column="staff_code" jdbcType="VARCHAR" property="staffCode" />
@@ -46,7 +46,7 @@
     delete from bfm_staff
     where staff_id = #{staffId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StaffDO">
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.StaffDO">
     <selectKey keyProperty="staffId" order="BEFORE" resultType="java.lang.Long">
       select nextval('t_bfm_staff_id_seq')
     </selectKey>
@@ -71,7 +71,7 @@
       #{extDat01,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{extDat02,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StaffDO">
+  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.StaffDO">
     <selectKey keyProperty="staffId" order="BEFORE" resultType="java.lang.Long">
       select nextval('t_bfm_staff_id_seq')
     </selectKey>
@@ -239,7 +239,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StaffDO">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.StaffDO">
     update bfm_staff
     <set>
       <if test="staffName != null">
@@ -323,7 +323,7 @@
     </set>
     where staff_id = #{staffId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.StaffDO">
+  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.StaffDO">
     update bfm_staff
     set staff_name = #{staffName,jdbcType=VARCHAR},
       staff_code = #{staffCode,jdbcType=VARCHAR},

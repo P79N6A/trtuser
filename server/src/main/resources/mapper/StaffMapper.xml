@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.StaffMapper">
-    <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.StaffDetail">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.server.dao.mapper.StaffMapper">
+    <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.StaffDetail">
         <id column="staff_id" jdbcType="BIGINT" property="staffId"/>
         <result column="staff_name" jdbcType="VARCHAR" property="staffName"/>
         <result column="staff_code" jdbcType="VARCHAR" property="staffCode"/>

@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.generator.UserOrgPrivDOMapper">
-  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.UserOrgPrivDO">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.server.dao.mapper.generator.UserOrgPrivDOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.UserOrgPrivDO">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="org_id" jdbcType="BIGINT" property="orgId" />
-    <result column="gmt_create" jdbcType="DATE" property="gmtCreate" />
-    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="merchant_code" jdbcType="VARCHAR" property="merchantCode" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" typeHandler="com.ztesoft.zsmart.nros.base.util.JSONTypeHandler" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" typeHandler="com.ztesoft.zsmart.nros.base.util.JSONTypeHandler" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="app_id" jdbcType="VARCHAR" property="appId" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_id, org_id, gmt_create, creator
+    id, user_id, org_id, status, merchant_code, creator, gmt_create, modifier, gmt_modified, 
+    app_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from nros_user_org_priv
+    from uc_user_org_priv
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from nros_user_org_priv
+    delete from uc_user_org_priv
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.UserOrgPrivDO">
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.UserOrgPrivDO">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
-      select nextval('nros_user_org_priv_id_seq')
+      select nextval('uc_user_org_priv_id_seq')
     </selectKey>
-    insert into nros_user_org_priv (id, user_id, org_id, 
-      gmt_create, creator)
+    insert into uc_user_org_priv (id, user_id, org_id, 
+      status, merchant_code, creator, 
+      gmt_create, modifier, 
+      gmt_modified, app_id)
     values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{orgId,jdbcType=BIGINT}, 
-      #{gmtCreate,jdbcType=DATE}, #{creator,jdbcType=VARCHAR})
+      #{status,jdbcType=VARCHAR}, #{merchantCode,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR,typeHandler=com.ztesoft.zsmart.nros.base.util.JSONTypeHandler}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR,typeHandler=com.ztesoft.zsmart.nros.base.util.JSONTypeHandler}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{appId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.UserOrgPrivDO">
+  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.UserOrgPrivDO">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
-      select nextval('nros_user_org_priv_id_seq')
+      select nextval('uc_user_org_priv_id_seq')
     </selectKey>
-    insert into nros_user_org_priv
+    insert into uc_user_org_priv
     <trim prefix="(" suffix=")" suffixOverrides=",">
       id,
       <if test="userId != null">
@@ -43,11 +53,26 @@
       <if test="orgId != null">
         org_id,
       </if>
-      <if test="gmtCreate != null">
-        gmt_create,
+      <if test="status != null">
+        status,
+      </if>
+      <if test="merchantCode != null">
+        merchant_code,
       </if>
       <if test="creator != null">
         creator,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="appId != null">
+        app_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -58,16 +83,31 @@
       <if test="orgId != null">
         #{orgId,jdbcType=BIGINT},
       </if>
-      <if test="gmtCreate != null">
-        #{gmtCreate,jdbcType=DATE},
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantCode != null">
+        #{merchantCode,jdbcType=VARCHAR},
       </if>
       <if test="creator != null">
-        #{creator,jdbcType=VARCHAR},
+        #{creator,jdbcType=VARCHAR,typeHandler=com.ztesoft.zsmart.nros.base.util.JSONTypeHandler},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR,typeHandler=com.ztesoft.zsmart.nros.base.util.JSONTypeHandler},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.UserOrgPrivDO">
-    update nros_user_org_priv
+  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.UserOrgPrivDO">
+    update uc_user_org_priv
     <set>
       <if test="userId != null">
         user_id = #{userId,jdbcType=BIGINT},
@@ -75,21 +115,41 @@
       <if test="orgId != null">
         org_id = #{orgId,jdbcType=BIGINT},
       </if>
-      <if test="gmtCreate != null">
-        gmt_create = #{gmtCreate,jdbcType=DATE},
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantCode != null">
+        merchant_code = #{merchantCode,jdbcType=VARCHAR},
       </if>
       <if test="creator != null">
-        creator = #{creator,jdbcType=VARCHAR},
+        creator = #{creator,jdbcType=VARCHAR,typeHandler=com.ztesoft.zsmart.nros.base.util.JSONTypeHandler},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR,typeHandler=com.ztesoft.zsmart.nros.base.util.JSONTypeHandler},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appId != null">
+        app_id = #{appId,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.UserOrgPrivDO">
-    update nros_user_org_priv
+  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.UserOrgPrivDO">
+    update uc_user_org_priv
     set user_id = #{userId,jdbcType=BIGINT},
       org_id = #{orgId,jdbcType=BIGINT},
-      gmt_create = #{gmtCreate,jdbcType=DATE},
-      creator = #{creator,jdbcType=VARCHAR}
+      status = #{status,jdbcType=VARCHAR},
+      merchant_code = #{merchantCode,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR,typeHandler=com.ztesoft.zsmart.nros.base.util.JSONTypeHandler},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR,typeHandler=com.ztesoft.zsmart.nros.base.util.JSONTypeHandler},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      app_id = #{appId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

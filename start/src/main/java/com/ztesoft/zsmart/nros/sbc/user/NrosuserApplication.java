@@ -13,6 +13,7 @@
 package com.ztesoft.zsmart.nros.sbc.user;
 
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
@@ -25,6 +26,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication(scanBasePackages = {"com.ztesoft.zsmart.nros.base", "com.ztesoft.zsmart.nros.sbc.user"})
+@MapperScan(basePackages = { "com.ztesoft.zsmart.nros.sbc.user.server.dao"
+}, sqlSessionFactoryRef = "sqlSessionFactory")
 @EnableFeignClients
 @EnableDiscoveryClient
 public class NrosuserApplication extends SpringBootServletInitializer {

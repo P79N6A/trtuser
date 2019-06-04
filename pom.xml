@@ -22,7 +22,7 @@
 
     <modules>
         <module>client</module>
-        <module>plugin</module>
+        <!--<module>plugin</module>-->
         <module>server</module>
         <module>start</module>
     </modules>

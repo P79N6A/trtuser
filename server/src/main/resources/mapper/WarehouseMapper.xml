@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.WarehouseMapper">
-  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.server.dao.mapper.WarehouseMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.WarehouseDO">
     <id column="id" jdbcType="BIGINT" property="id" />
     <id column="org_id" jdbcType="BIGINT" property="orgId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -27,7 +27,7 @@
     extension_number, mobile, store_id, store_name, telephone, type, zip_code, share_flag
   </sql>
 
-  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.WarehouseDO">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
       select nextval('nros_warehouse_id_seq')
     </selectKey>
@@ -102,7 +102,7 @@
     where tw.org_id =  #{orgId,jdbcType=BIGINT}
   </select>
 
-  <update id="updateByOrgIdSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+  <update id="updateByOrgIdSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.WarehouseDO">
     update nros_warehouse
     <set>
       <if test="name != null">

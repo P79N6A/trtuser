@@ -1,5 +1,6 @@
 package com.ztesoft.zsmart.nros.sbc.user.client.model.dto;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -37,7 +38,7 @@ public class UserOrgPrivDTO implements Serializable {
     /**
      * UserOrgPrivDO-creator
      */
-    private String creator;
+    private JSONObject creator;
 
     /**
      * OrgDO-parent_org_id

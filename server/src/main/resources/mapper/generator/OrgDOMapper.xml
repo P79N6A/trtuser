@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.generator.OrgDOMapper">
-  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.server.dao.mapper.generator.OrgDOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.OrgDO">
     <id column="org_id" jdbcType="BIGINT" property="orgId" />
     <result column="parent_org_id" jdbcType="NUMERIC" property="parentOrgId" />
     <result column="org_name" jdbcType="VARCHAR" property="orgName" />
@@ -45,7 +45,7 @@
     delete from bfm_org
     where org_id = #{orgId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.OrgDO">
     <selectKey keyProperty="orgId" order="BEFORE" resultType="java.lang.Long">
       select nextval('t_bfm_org_id_seq')
     </selectKey>
@@ -68,7 +68,7 @@
       #{extDat01,jdbcType=TIMESTAMP}, #{extDat02,jdbcType=TIMESTAMP}, #{spId,jdbcType=NUMERIC}, 
       #{leader,jdbcType=NUMERIC})
   </insert>
-  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.OrgDO">
     <selectKey keyProperty="orgId" order="BEFORE" resultType="java.lang.Long">
       select nextval('t_bfm_org_id_seq')
     </selectKey>
@@ -230,7 +230,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.OrgDO">
     update bfm_org
     <set>
       <if test="parentOrgId != null">
@@ -311,7 +311,7 @@
     </set>
     where org_id = #{orgId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.OrgDO">
+  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.OrgDO">
     update bfm_org
     set parent_org_id = #{parentOrgId,jdbcType=NUMERIC},
       org_name = #{orgName,jdbcType=VARCHAR},

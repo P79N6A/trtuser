@@ -21,7 +21,8 @@
 
         <!--数据库基本信息-->
         <jdbcConnection driverClass="org.postgresql.Driver"
-                        connectionURL="jdbc:postgresql://10.45.50.174:5432/portal_dev" userId="nros" password="nros1234"/>
+                        connectionURL="jdbc:postgresql://pgm-2zef0xm7ty4h57wlio.pg.rds.aliyuncs.com:3433/portal_dev?currentSchema=public"
+                        userId="trtjk" password="Trtjk1669"/>
 
         <!--指定生成的类型为java类型，避免数据库中number等类型字段 -->
         <javaTypeResolver>
@@ -30,9 +31,10 @@
 
         <!--自动生成的实体的存放包路径 -->
         <javaModelGenerator
-                targetPackage="com.ztesoft.zsmart.nros.sbc.user.dao.model.generator"
+                targetPackage="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator"
                 targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
+            <property name="rootClass" value="com.ztesoft.zsmart.nros.common.model.BaseModel"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
@@ -44,107 +46,114 @@
 
         <!--自动生成的*Mapper.java存放路径 -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.generator"
+                             targetPackage="com.ztesoft.zsmart.nros.sbc.user.server.dao.mapper.generator"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!--  <table tableName="nros_channel" domainObjectName="ChannelDO"
-                 enableCountByExample="false"
-                 enableUpdateByExample="false"
-                 enableDeleteByExample="false"
-                 enableSelectByExample="false"
-                 selectByExampleQueryId="false">
-              <generatedKey  type="pre"  column="id" sqlStatement="select nextval('nros_channel_id_seq')"/>
-              <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
-          </table>
+                    enableCountByExample="false"
+                    enableUpdateByExample="false"
+                    enableDeleteByExample="false"
+                    enableSelectByExample="false"
+                    selectByExampleQueryId="false">
+                 <generatedKey  type="pre"  column="id" sqlStatement="select nextval('nros_channel_id_seq')"/>
+                 <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+             </table>
 
-           <table tableName="nros_enum_config" domainObjectName="EnumConfigDO"
-                 enableCountByExample="false"
-                 enableUpdateByExample="false"
-                 enableDeleteByExample="false"
-                 enableSelectByExample="false"
-                 selectByExampleQueryId="false">
-              <generatedKey  type="pre"  column="id" sqlStatement="select nextval('nros_enum_config_id_seq')"/>
-              <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
-          </table>
+              <table tableName="nros_enum_config" domainObjectName="EnumConfigDO"
+                    enableCountByExample="false"
+                    enableUpdateByExample="false"
+                    enableDeleteByExample="false"
+                    enableSelectByExample="false"
+                    selectByExampleQueryId="false">
+                 <generatedKey  type="pre"  column="id" sqlStatement="select nextval('nros_enum_config_id_seq')"/>
+                 <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+             </table>
 
-          <table tableName="nros_store" domainObjectName="StoreDO"
-                 enableCountByExample="false"
-                 enableUpdateByExample="false"
-                 enableDeleteByExample="false"
-                 enableSelectByExample="false"
-                 selectByExampleQueryId="false">
-              <generatedKey  type="pre"  column="id" sqlStatement="select nextval('nros_store_id_seq')"/>
-              <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
-          </table>
+             <table tableName="nros_store" domainObjectName="StoreDO"
+                    enableCountByExample="false"
+                    enableUpdateByExample="false"
+                    enableDeleteByExample="false"
+                    enableSelectByExample="false"
+                    selectByExampleQueryId="false">
+                 <generatedKey  type="pre"  column="id" sqlStatement="select nextval('nros_store_id_seq')"/>
+                 <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+             </table>
 
-          <table tableName="nros_warehouse" domainObjectName="WarehouseDO"
-                 enableCountByExample="false"
-                 enableUpdateByExample="false"
-                 enableDeleteByExample="false"
-                 enableSelectByExample="false"
-                 selectByExampleQueryId="false">
-              <generatedKey  type="pre"  column="id" sqlStatement="select nextval('nros_warehouse_id_seq')"/>
-              <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
-          </table>
+             <table tableName="nros_warehouse" domainObjectName="WarehouseDO"
+                    enableCountByExample="false"
+                    enableUpdateByExample="false"
+                    enableDeleteByExample="false"
+                    enableSelectByExample="false"
+                    selectByExampleQueryId="false">
+                 <generatedKey  type="pre"  column="id" sqlStatement="select nextval('nros_warehouse_id_seq')"/>
+                 <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+             </table>
 
-          <table tableName="bfm_org" domainObjectName="OrgDO"
-                 enableCountByExample="false"
-                 enableUpdateByExample="false"
-                 enableDeleteByExample="false"
-                 enableSelectByExample="false"
-                 selectByExampleQueryId="false">
-              <generatedKey  type="pre"  column="org_id" sqlStatement="select nextval('t_bfm_org_id_seq')"/>
-              <columnOverride column="org_id" javaType="java.lang.Long" jdbcType="BIGINT"/>
-          </table>
+             <table tableName="bfm_org" domainObjectName="OrgDO"
+                    enableCountByExample="false"
+                    enableUpdateByExample="false"
+                    enableDeleteByExample="false"
+                    enableSelectByExample="false"
+                    selectByExampleQueryId="false">
+                 <generatedKey  type="pre"  column="org_id" sqlStatement="select nextval('t_bfm_org_id_seq')"/>
+                 <columnOverride column="org_id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+             </table>
 
-          <table tableName="bfm_user" domainObjectName="UserDO"
-                 enableCountByExample="false"
-                 enableUpdateByExample="false"
-                 enableDeleteByExample="false"
-                 enableSelectByExample="false"
-                 selectByExampleQueryId="false">
-              <generatedKey  type="pre"  column="user_id" sqlStatement="select nextval('t_bfm_user_id_seq')"/>
-              <columnOverride column="user_id" javaType="java.lang.Long" jdbcType="BIGINT"/>
-          </table>
+             <table tableName="bfm_user" domainObjectName="UserDO"
+                    enableCountByExample="false"
+                    enableUpdateByExample="false"
+                    enableDeleteByExample="false"
+                    enableSelectByExample="false"
+                    selectByExampleQueryId="false">
+                 <generatedKey  type="pre"  column="user_id" sqlStatement="select nextval('t_bfm_user_id_seq')"/>
+                 <columnOverride column="user_id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+             </table>
 
-          <table tableName="bfm_staff" domainObjectName="StaffDO"
-                 enableCountByExample="false"
-                 enableUpdateByExample="false"
-                 enableDeleteByExample="false"
-                 enableSelectByExample="false"
-                 selectByExampleQueryId="false">
-              <generatedKey type="pre" column="staff_id" sqlStatement="select nextval('t_bfm_staff_id_seq')"/>
-              <columnOverride column="staff_id" javaType="java.lang.Long" jdbcType="BIGINT"/>
-          </table>
+             <table tableName="bfm_staff" domainObjectName="StaffDO"
+                    enableCountByExample="false"
+                    enableUpdateByExample="false"
+                    enableDeleteByExample="false"
+                    enableSelectByExample="false"
+                    selectByExampleQueryId="false">
+                 <generatedKey type="pre" column="staff_id" sqlStatement="select nextval('t_bfm_staff_id_seq')"/>
+                 <columnOverride column="staff_id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+             </table>
 
-          <table tableName="nros_merchant" domainObjectName="MerchantDO"
-                 enableCountByExample="false"
-                 enableUpdateByExample="false"
-                 enableDeleteByExample="false"
-                 enableSelectByExample="false"
-                 selectByExampleQueryId="false">
-              <generatedKey type="pre" column="id" sqlStatement="select nextval('nros_merchant_id_seq')"/>
-              <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
-          </table>
-          <table tableName="nros_subsidiary" domainObjectName="SubsidiaryDO"
-                 enableCountByExample="false"
-                 enableUpdateByExample="false"
-                 enableDeleteByExample="false"
-                 enableSelectByExample="false"
-                 selectByExampleQueryId="false">
-              <generatedKey type="pre" column="id" sqlStatement="select nextval('nros_subsidiary_id_seq')"/>
-              <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
-          </table>-->
-        <table tableName="nros_user_org_priv" domainObjectName="UserOrgPrivDO"
+             <table tableName="nros_merchant" domainObjectName="MerchantDO"
+                    enableCountByExample="false"
+                    enableUpdateByExample="false"
+                    enableDeleteByExample="false"
+                    enableSelectByExample="false"
+                    selectByExampleQueryId="false">
+                 <generatedKey type="pre" column="id" sqlStatement="select nextval('nros_merchant_id_seq')"/>
+                 <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+             </table>
+             <table tableName="nros_subsidiary" domainObjectName="SubsidiaryDO"
+                    enableCountByExample="false"
+                    enableUpdateByExample="false"
+                    enableDeleteByExample="false"
+                    enableSelectByExample="false"
+                    selectByExampleQueryId="false">
+                 <generatedKey type="pre" column="id" sqlStatement="select nextval('nros_subsidiary_id_seq')"/>
+                 <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+             </table>-->
+
+        <table tableName="uc_user_org_priv" domainObjectName="UserOrgPrivDO"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false">
-            <generatedKey type="pre" column="id" sqlStatement="select nextval('nros_user_org_priv_id_seq')"/>
+            <generatedKey  type="pre"  column="id" sqlStatement="select nextval('uc_user_org_priv_id_seq')"/>
             <columnOverride column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <columnOverride column="creator" javaType="com.alibaba.fastjson.JSONObject" typeHandler="com.ztesoft.zsmart.nros.base.util.JSONTypeHandler"/>
+            <columnOverride column="modifier" javaType="com.alibaba.fastjson.JSONObject" typeHandler="com.ztesoft.zsmart.nros.base.util.JSONTypeHandler"/>
+            <columnOverride column="ext_info" javaType="com.alibaba.fastjson.JSONObject" typeHandler="com.ztesoft.zsmart.nros.base.util.JSONTypeHandler"/>
         </table>
+
+
+
     </context>
 </generatorConfiguration>

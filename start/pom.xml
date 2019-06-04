@@ -6,16 +6,16 @@
         <artifactId>nros-user</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.ztesoft.zsmart.nros.sbc.nrosuser</groupId>
-    <artifactId>nrosuser-start</artifactId>
+    <groupId>com.ztesoft.zsmart.nros.sbc</groupId>
+    <artifactId>nros-user-start</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>nrosuser-start</name>
+    <name>nros-user-start</name>
 
     <dependencies>
         <dependency>
-            <groupId>com.ztesoft.zsmart.nros.sbc.nrosuser</groupId>
-            <artifactId>nrosuser-server</artifactId>
+            <groupId>com.ztesoft.zsmart.nros.sbc</groupId>
+            <artifactId>nros-user-server</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>

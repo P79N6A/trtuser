@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.UserOrgPrivMapper">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.server.dao.mapper.UserOrgPrivMapper">
 
   <sql id="Base_Column_List">
     a.id, a.user_id, a.org_id, a.gmt_create, a.creator,b.org_id,b.parent_org_id,b.org_name
   </sql>
-  <select id="selectByUserId" resultType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.UserOrgPriv">
+  <select id="selectByUserId" resultType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.UserOrgPriv">
     select
     <include refid="Base_Column_List" />
     from nros_user_org_priv a, bfm_org b

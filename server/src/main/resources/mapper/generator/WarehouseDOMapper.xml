@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.dao.mapper.generator.WarehouseDOMapper">
-  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+<mapper namespace="com.ztesoft.zsmart.nros.sbc.user.server.dao.mapper.generator.WarehouseDOMapper">
+  <resultMap id="BaseResultMap" type="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.WarehouseDO">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="org_id" jdbcType="BIGINT" property="orgId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -36,7 +36,7 @@
     delete from nros_warehouse
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+  <insert id="insert" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.WarehouseDO">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
       select nextval('nros_warehouse_id_seq')
     </selectKey>
@@ -55,7 +55,7 @@
       #{telephone,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{zipCode,jdbcType=VARCHAR}, 
       #{shareFlag,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+  <insert id="insertSelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.WarehouseDO">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
       select nextval('nros_warehouse_id_seq')
     </selectKey>
@@ -175,7 +175,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.WarehouseDO">
     update nros_warehouse
     <set>
       <if test="orgId != null">
@@ -235,7 +235,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.dao.dataobject.generator.WarehouseDO">
+  <update id="updateByPrimaryKey" parameterType="com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.WarehouseDO">
     update nros_warehouse
     set org_id = #{orgId,jdbcType=BIGINT},
       name = #{name,jdbcType=VARCHAR},

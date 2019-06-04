@@ -12,9 +12,9 @@ public interface UserOrgPrivService {
 
     List<UserOrgPrivDTO> selectByUserId(Long userId);
 
-    void insertByBatch(List<Long> userIds, List<Long> orgIds, String creator);
+    int insertByBatch(List<Long> userIds, List<Long> orgIds, String creator);
 
-    void deleteByUserIdAndOrgId(Long userId, Long orgId);
+    int deleteByUserIdAndOrgId(Long userId, Long orgId);
 
-    void deleteByUserIdAndOrgIds(Long userId, List<Long> orgIds);
+    int deleteByUserIdAndOrgIds(Long userId, List<Long> orgIds);
 }
