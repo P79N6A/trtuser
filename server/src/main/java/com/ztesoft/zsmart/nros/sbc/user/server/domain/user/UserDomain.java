@@ -1,16 +1,12 @@
 package com.ztesoft.zsmart.nros.sbc.user.server.domain.user;
 
+import com.github.pagehelper.PageInfo;
+import com.ztesoft.zsmart.nros.sbc.user.client.model.dto.StaffDTO;
+import com.ztesoft.zsmart.nros.sbc.user.client.model.dto.UserDTO;
 import com.ztesoft.zsmart.nros.sbc.user.client.model.query.StaffQuery;
-import com.ztesoft.zsmart.nros.sbc.user.server.common.enums.DataStateEnum;
-import com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.StaffDetail;
-import com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.StaffDO;
-import com.ztesoft.zsmart.nros.sbc.user.server.dao.dataobject.generator.UserDO;
 import com.ztesoft.zsmart.nros.sbc.user.server.repository.UserRepository;
-import jodd.bean.BeanCopy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * @author bin.yu
@@ -23,55 +19,20 @@ public class UserDomain {
     private UserRepository userRepository;
 
 
-    public UserDO findById(Long id) {
-        //return userDoMapper.selectByPrimaryKey(id);
-        return null;
+    public UserDTO findById(Long id) {
+        return userRepository.findUserDOById(id);
     }
 
-    public List<StaffDO> queryStaffDOList(StaffQuery staffQuery) {
-        StaffDetail staffDetail = query2StaffDetail(staffQuery);
-        //return staffMapper.selectStaffList(staffDetail);
-        return null;
+    public PageInfo<StaffDTO> queryStaffDOList(StaffQuery staffQuery) {
+        return userRepository.queryStaffDOListByPage(staffQuery);
     }
 
-    public List<StaffDetail> queryStaffDetailList(StaffQuery staffQuery) {
-        StaffDO staffDO = query2StaffDO(staffQuery);
-        //List<StaffDetail> staffDetails = staffMapper.selectStaffDetailList(staffDO);
-        return null;
+    public PageInfo<StaffDTO> queryStaffDetailList(StaffQuery staffQuery) {
+        return userRepository.queryStaffDetailListByPage(staffQuery);
     }
 
-    public StaffDetail queryStaffDetail(Long id) {
-        //return staffMapper.selectStaffDetail(id);
-        return null;
+    public StaffDTO queryStaffDetail(Long id) {
+        return userRepository.queryStaffDetailById(id);
     }
-
-
-    private StaffDO query2StaffDO(StaffQuery staffQuery) {
-        StaffDO staffDO = new StaffDO();
-        //如果query的state值是空的,表示查有效的
-        if(staffQuery == null ){
-            staffQuery.setState(DataStateEnum.A.getCode());
-        } else  {
-            staffQuery.setState(DataStateEnum.getDataState(staffQuery.getState()));
-        }
-        BeanCopy.beans(staffQuery, staffDO).copy();
-        return staffDO;
-    }
-
-
-    private StaffDetail query2StaffDetail(StaffQuery staffQuery) {
-        StaffDetail staffDetail = new StaffDetail();
-        //如果query的state值是空的,表示查有效的
-        if(staffQuery == null ){
-            staffQuery.setState(DataStateEnum.A.getCode());
-        } else  {
-            staffQuery.setState(DataStateEnum.getDataState(staffQuery.getState()));
-        }
-        BeanCopy.beans(staffQuery, staffDetail).copy();
-        return staffDetail;
-    }
-
-
-
 
 }

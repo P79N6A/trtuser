@@ -1,22 +1,24 @@
 package com.ztesoft.zsmart.nros.sbc.user.controller.web;
 
-import com.github.pagehelper.PageInfo;
 import com.ztesoft.zsmart.nros.base.exception.BusiException;
 import com.ztesoft.zsmart.nros.base.model.ResponseMsg;
 import com.ztesoft.zsmart.nros.base.util.CommonFunctions;
 import com.ztesoft.zsmart.nros.sbc.user.client.api.UserOrgPrivService;
 import com.ztesoft.zsmart.nros.sbc.user.client.api.UserService;
 import com.ztesoft.zsmart.nros.sbc.user.client.model.dto.StaffDTO;
-import com.ztesoft.zsmart.nros.sbc.user.client.model.dto.UserDTO;
-import com.ztesoft.zsmart.nros.sbc.user.client.model.dto.UserOrgPrivDTO;
-import com.ztesoft.zsmart.nros.sbc.user.client.model.query.StaffQuery;
 import com.ztesoft.zsmart.nros.sbc.user.client.model.param.UserOrgParam;
+import com.ztesoft.zsmart.nros.sbc.user.client.model.query.StaffQuery;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -48,19 +50,15 @@ public class UserController {
 
 
     @GetMapping("/staff/{id}")
-    @ApiOperation("查询用户详情")
+    @ApiOperation(value = "查询员工详情", notes = "查询员工详情")
     public ResponseMsg<?> queryStaffDetail(@PathVariable Long id) {
-        StaffDTO staffDTO = userService.findStaffDetailById(id);
-        return ResponseMsg.build(staffDTO).success();
+        return CommonFunctions.runSupplier(()->userService.findStaffDetailById(id),"查询员工详情失败");
     }
 
-    @GetMapping
-    @ApiOperation(value = "查询用户列表", notes = "查询用户列表", response = StaffDTO.class)
-    public ResponseMsg listStaffInfo(StaffQuery staffQuery) throws BusiException {
-        PageInfo pageInfo = userService.listStaffInfo(staffQuery);
-        ResponseMsg responseMsg = new ResponseMsg();
-        responseMsg.setSuccess(true);
-        return responseMsg.success("success", pageInfo);
+    @PostMapping
+    @ApiOperation(value = "查询员工列表", notes = "查询员工列表", response = StaffDTO.class)
+    public ResponseMsg listStaffInfo(@RequestBody StaffQuery staffQuery) throws BusiException {
+        return CommonFunctions.runSupplierByPage(()->userService.listStaffInfo(staffQuery),"查询员工列表失败");
     }
 
 
@@ -68,7 +66,7 @@ public class UserController {
     @GetMapping("priv/userId/{userId}")
     @ApiOperation(value = "查询用户机构权限list", notes = "查询用户机构权限list")
     public ResponseMsg selectOrgPrivByUserId(@PathVariable(name = "user_id")
-    @ApiParam(name = "user_id", value = "用户主键", required = true) Long userId) {
+    @ApiParam(name = "userId", value = "用户主键", required = true) Long userId) {
         return CommonFunctions.runSupplierByList(()->userOrgPrivService.selectByUserId(userId),"查询用户机构权限列表失败");
     }
 

@@ -52,27 +52,19 @@
         <include refid="Base_Column_List"/>
         from bfm_staff bs
         where 1=1
-        <if test="staffDetail.staffName != null and staffDetail.staffName != ''">
-            and bs.staff_name like concat('%',#{staffDetail.staffName},'%')
+        <if test="staffDO.staffName != null and staffDO.staffName != ''">
+            and bs.staff_name like concat('%',#{staffDO.staffName},'%')
         </if>
-        <if test="staffDetail.phone != null and staffDetail.phone != ''">
-            and bs.phone like concat(#{staffDetail.phone},'%')
+        <if test="staffDO.phone != null and staffDO.phone != ''">
+            and bs.phone like concat(#{staffDO.phone},'%')
         </if>
-        <if test="staffDetail.email != null and staffDetail.email != ''">
-            and bs.email like concat(#{staffDetail.email},'%')
+        <if test="staffDO.email != null and staffDO.email != ''">
+            and bs.email like concat(#{staffDO.email},'%')
         </if>
-        <if test="staffDetail.state != null and staffDetail.state != '' ">
-            and bs.state = #{staffDetail.state}
+        <if test="staffDO.state != null and staffDO.state != '' ">
+            and bs.state = #{staffDO.state}
         </if>
-        <if test="staffDetail.orgIds != null and staffDetail.orgIds.size >0 ">
-            and bs.staff_id in
-              (select bso.staff_id
-              from bfm_staff_org bso where bso.state = 'A' and bso.org_id in
-            <foreach collection="staffDetail.orgIds" index="index" item="item" open="(" close=")" separator=",">
-                #{item}
-            </foreach>
-            )
-        </if>
+
 
     </select>
 
@@ -85,14 +77,23 @@
         <include refid="Base_Column_List"/>
         from bfm_staff bs
         where 1=1
-        <if test="staffDO.staffName != null and staffDO.staffName != ''">
-            and bs.staff_name like concat('%',#{staffDO.staffName},'%')
+        <if test="staffDetail.staffName != null and staffDetail.staffName != ''">
+            and bs.staff_name like concat('%',#{staffDetail.staffName},'%')
         </if>
-        <if test="staffDO.phone != null and staffDO.phone != ''">
-            and bs.phone like concat('%',#{staffDO.phone},'%')
+        <if test="staffDetail.phone != null and staffDetail.phone != ''">
+            and bs.phone like concat('%',#{staffDetail.phone},'%')
         </if>
-        <if test="staffDO.state != null and staffDO.state != '' ">
-            and bs.state = #{staffDO.state}
+        <if test="staffDetail.state != null and staffDetail.state != '' ">
+            and bs.state = #{staffDetail.state}
+        </if>
+        <if test="staffDetail.orgIds != null and staffDetail.orgIds.size >0 ">
+            and bs.staff_id in
+            (select bso.staff_id
+            from bfm_staff_org bso where bso.state = 'A' and bso.org_id in
+            <foreach collection="staffDetail.orgIds" index="index" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+            )
         </if>
         ) bs
         LEFT JOIN bfm_staff_org bso on bs.staff_id = bso.staff_id and bso.state = 'A'
