@@ -1,5 +1,6 @@
 package com.ztesoft.zsmart.nros.sbc.user.controller.web;
 
+import com.ztesoft.zsmart.nros.base.annotation.CenterController;
 import com.ztesoft.zsmart.nros.base.exception.BusiException;
 import com.ztesoft.zsmart.nros.base.model.ResponseMsg;
 import com.ztesoft.zsmart.nros.base.util.CommonFunctions;
@@ -29,7 +30,7 @@ import java.util.List;
  * @create 2019-4-12 16:58:58
  */
 @Slf4j
-@RestController
+@CenterController
 @RequestMapping("/user")
 @Api(value = "用户管理", tags = {"用户管理"}, description = "用户服务")
 public class UserController {
@@ -56,10 +57,16 @@ public class UserController {
     }
 
     @PostMapping
-    @ApiOperation(value = "查询员工列表", notes = "查询员工列表", response = StaffDTO.class)
+    @ApiOperation(value = "查询用户列表", notes = "查询用户列表", response = StaffDTO.class)
     public ResponseMsg listStaffInfo(@RequestBody StaffQuery staffQuery) throws BusiException {
-        return CommonFunctions.runSupplierByPage(()->userService.listStaffInfo(staffQuery),"查询员工列表失败");
+        return CommonFunctions.runSupplierByPage(()->userService.listStaffInfo(staffQuery),"查询用户列表失败");
     }
+    @PostMapping("/staff")
+    @ApiOperation(value = "查询员工列表", notes = "查询员工列表", response = StaffDTO.class)
+    public ResponseMsg listStaffDetailInfo(@RequestBody StaffQuery staffQuery) throws BusiException {
+        return CommonFunctions.runSupplierByPage(()->userService.listStaffDetailInfo(staffQuery),"查询员工列表失败");
+    }
+
 
 
 
