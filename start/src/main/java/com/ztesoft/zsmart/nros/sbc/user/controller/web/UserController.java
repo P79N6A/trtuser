@@ -7,6 +7,8 @@ import com.ztesoft.zsmart.nros.base.util.CommonFunctions;
 import com.ztesoft.zsmart.nros.sbc.user.client.api.UserOrgPrivService;
 import com.ztesoft.zsmart.nros.sbc.user.client.api.UserService;
 import com.ztesoft.zsmart.nros.sbc.user.client.model.dto.StaffDTO;
+import com.ztesoft.zsmart.nros.sbc.user.client.model.dto.UserDTO;
+import com.ztesoft.zsmart.nros.sbc.user.client.model.dto.UserOrgPrivDTO;
 import com.ztesoft.zsmart.nros.sbc.user.client.model.param.UserOrgParam;
 import com.ztesoft.zsmart.nros.sbc.user.client.model.query.StaffQuery;
 import io.swagger.annotations.Api;
@@ -19,7 +21,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class UserController {
     
 
     @GetMapping("/{id}")
-    @ApiOperation(value = "查询用户详情", notes = "查询用户详情")
+    @ApiOperation(value = "查询用户详情", notes = "查询用户详情", response = UserDTO.class)
     public ResponseMsg<?> queryUser(@PathVariable(name = "id")
     @ApiParam(name = "id", value = "用户编号", required = true) Long id) throws Exception{
         return CommonFunctions.runSupplier(()->userService.findById(id),"查询用户详情失败");
@@ -51,7 +52,7 @@ public class UserController {
 
 
     @GetMapping("/staff/{id}")
-    @ApiOperation(value = "查询员工详情", notes = "查询员工详情")
+    @ApiOperation(value = "查询员工详情", notes = "查询员工详情", response = StaffDTO.class)
     public ResponseMsg<?> queryStaffDetail(@PathVariable Long id) {
         return CommonFunctions.runSupplier(()->userService.findStaffDetailById(id),"查询员工详情失败");
     }
@@ -71,8 +72,8 @@ public class UserController {
 
 
     @GetMapping("priv/userId/{userId}")
-    @ApiOperation(value = "查询用户机构权限list", notes = "查询用户机构权限list")
-    public ResponseMsg selectOrgPrivByUserId(@PathVariable(name = "user_id")
+    @ApiOperation(value = "查询用户机构权限list", notes = "查询用户机构权限list", response = UserOrgPrivDTO.class)
+    public ResponseMsg<?> selectOrgPrivByUserId(@PathVariable(name = "user_id")
     @ApiParam(name = "userId", value = "用户主键", required = true) Long userId) {
         return CommonFunctions.runSupplierByList(()->userOrgPrivService.selectByUserId(userId),"查询用户机构权限列表失败");
     }
